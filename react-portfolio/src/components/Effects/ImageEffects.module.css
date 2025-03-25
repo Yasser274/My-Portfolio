@@ -1,0 +1,30 @@
+@import "../../Styles/vars.css";
+
+.imageEffectsWrapper {
+   perspective: 1000px;
+   height: auto;
+   max-width: 30%;
+   object-fit: contain;
+}
+
+.imageEffects {
+   max-width: 100%;
+   height: auto;
+   object-fit: contain;
+   display: block;
+   transform-style: preserve-3d;
+   transition: transform 0.2s ease;
+}
+
+/* ***Responsive */
+
+@media (width <= 830px) {
+   .imageEffectsWrapper {
+      display: none;
+   }
+}
+@media (min-width: 1200px) {
+   .imageEffectsWrapper {
+      max-height: 80vh;
+   }
+}

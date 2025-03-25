@@ -1,0 +1,140 @@
+.sectionExp {
+   margin-top: 120px;
+   z-index: 1;
+   margin-left: 10%;
+   margin-right: 10%;
+}
+.bigTitle {
+   color: var(--color-text);
+   font-size: 2.2rem;
+   font-weight: 800;
+   position: relative;
+   letter-spacing: 3px;
+   text-transform: uppercase;
+   display: inline-flex;
+}
+.bigTitle::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   bottom: 5px;
+   width: 107%;
+   height: 4px;
+   background: rgb(9, 32, 63);
+   background: linear-gradient(63deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+}
+
+.expCon {
+   display: flex;
+   flex-direction: row;
+   gap: 80px;
+   margin-top: 15px;
+   align-items: flex-start;
+   justify-content: space-around;
+   width: 100%;
+}
+.leftExp {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+   gap: 25px;
+   justify-items: center;
+   align-items: flex-start;
+   flex: 1;
+   width: 100%;
+}
+.rightExp {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   flex: 1;
+   width: 100%;
+   margin-top: 44px;
+}
+
+.individualExp {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 10px;
+   text-align: center;
+   
+}
+
+.expItemCon {
+   background-color: rgba(87, 107, 188, 0.336); /* Adds 0.4 alpha (40% opacity) */
+   border-radius: 50%;
+   padding: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 120px;
+   height: 120px;
+   box-shadow: 0 0 15px 3px rgba(88, 88, 88, 0.459);
+   box-sizing: border-box;
+   overflow: hidden;
+   flex-shrink: 0;
+}
+.individualExpImage {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+   border-radius: 50%;
+   filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.788));
+   -webkit-filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.788));
+}
+.individualExpTitle {
+   font-size: 1.2rem;
+   font-weight: 500;
+   letter-spacing: 1.2px;
+   word-break: break-word;
+}
+.jobCon {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   gap: 20px;
+   border-radius: 10px;
+   padding: 24px;
+   background: #19376d;
+   background: linear-gradient(90deg, #19376d 0%, rgba(25, 55, 109, 0) 100%);
+}
+.jobLogoCon img {
+   width: 75px;
+   filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.788));
+   -webkit-filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.788));
+}
+.jobContent {
+   display: inline-flex;
+   font-size: 1.5rem;
+   font-weight: 700;
+   letter-spacing: 1.2px;
+}
+.jobDuration {
+   font-size: 1rem;
+   color: gray;
+}
+.jobPoints li {
+   letter-spacing: 1.02px;
+   padding-left: 10px;
+   word-break: break-word;
+}
+
+/* ***Responsive */
+
+@media (width <= 830px) {
+   .expCon {
+      flex-direction: column;
+      gap: 80px;
+   }
+   .rightExp{
+    margin-top: 0;
+   }
+}
+
+@media (width >= 1120px) {
+   .jobCon {
+      justify-content: flex-start;
+   }
+}

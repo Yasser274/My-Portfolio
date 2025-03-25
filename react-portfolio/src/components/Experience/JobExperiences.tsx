@@ -9,15 +9,9 @@ interface JobExperienceProps {
    points: string[]; // an array of strings
 }
 
-const JobExperiences: React.FC<JobExperienceProps> = ({
-   companyName,
-   companyLogo,
-   date,
-   points,
-   jobTitle,
-}) => {
+const MakeJobItem: React.FC<JobExperienceProps> = ({ companyName, companyLogo, jobTitle, date, points }) => {
    return (
-      <div className={styles.jobCon}>
+      <>
          <div className={styles.jobLogoCon}>
             <img src={companyLogo} alt={`The logo of the company ${companyName}`} />
          </div>
@@ -35,6 +29,27 @@ const JobExperiences: React.FC<JobExperienceProps> = ({
                ))}
             </ul>
          </div>
+      </>
+   );
+};
+
+const JobExperiences: React.FC<JobExperienceProps> = ({
+   companyName,
+   companyLogo,
+   date,
+   points,
+   jobTitle,
+}) => {
+   return (
+      <div className={styles.jobCon}>
+         {/* if these below are empty it renders the another div with h4 if not it calls a function that renders jobsExp */}
+         {companyName && companyLogo && date && points && jobTitle ? (
+            <>{MakeJobItem({ companyName, companyLogo, jobTitle, date, points })}</>
+         ) : (
+            <div className={styles.emptyJobExp}>
+               <h4>Currently seeking opportunities</h4>
+            </div>
+         )}
       </div>
    );
 };

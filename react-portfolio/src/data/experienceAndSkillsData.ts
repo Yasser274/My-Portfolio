@@ -1,9 +1,5 @@
 export const experienceData = [
    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/512px-WordPress_blue_logo.svg.png",
-      title: "WordPress",
-   },
-   {
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Microsoft_365_%282022%29.svg/512px-Microsoft_365_%282022%29.svg.png",
       title: "Microsoft Office",
    },
@@ -12,24 +8,34 @@ export const experienceData = [
       title: "Google Ads",
    },
    {
-    image: 'https://logos-world.net/wp-content/uploads/2021/02/Google-Analytics-Logo.png',
-    title: 'Google Analytics'
+      image: 'https://logos-world.net/wp-content/uploads/2021/02/Google-Analytics-Logo.png',
+      title: 'Google Analytics',
+      cert: 'https://drive.google.com/file/d/1ksu2xI06lx-wOJdFVE-oyXJgeiutuLAP/view',
    },
    {
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png',
-    title: 'HTML5'
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png',
+      title: 'HTML5'
    },
    {
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png',
-    title: 'CSS'
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png',
+      title: 'CSS'
    },
    {
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png',
-    title: 'JavaScript'
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png',
+      title: 'JavaScript'
    },
    {
-    image: 'https://static.wikia.nocookie.net/logopedia/images/a/a8/Tag_Manager_icon_2016.png',
-    title: 'Google Tag Manager'
+      image: 'https://static.wikia.nocookie.net/logopedia/images/a/a8/Tag_Manager_icon_2016.png',
+      title: 'Google Tag Manager'
+   },
+   {
+      image: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png',
+      title: 'SQL',
+      cert: 'https://drive.google.com/file/d/1GJMnygySUqKzEGU6BuG3uL8SAtPqOl49/view'
+   },
+   {
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/512px-WordPress_blue_logo.svg.png",
+      title: "WordPress",
    },
    {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/2101px-Adobe_Photoshop_CC_icon.svg.png',
@@ -46,12 +52,19 @@ export const experienceData = [
 ];
 export const jobsExperienceData = [
    {
-      jobTitle: "Intern",
-      companyName: "Pfizer",
-      companyLogo: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Pfizer_%282021%29.png",
-      date: `March, 2025 - Present`,
-      points: ["Designed agjigei gfdjgifdpgjdfipgjdifgjdfigjdfigpjdipgffjdipg", "kgogjieh ehji"],
+      jobTitle: "",
+      companyName: "",
+      companyLogo: "",
+      date: ``,
+      points: ["", ""],
    },
+   // {
+   //    jobTitle: "Intern",
+   //    companyName: "Pfizer",
+   //    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Pfizer_%282021%29.png",
+   //    date: `March, 2025 - Present`,
+   //    points: ["Designed agjigei gfdjgifdpgjdfipgjdifgjdfigjdfigpjdipgffjdipg", "kgogjieh ehji"],
+   // },
 ];
 
 export interface ExperienceItem {

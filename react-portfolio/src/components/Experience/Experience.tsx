@@ -6,6 +6,7 @@ import JobExperiences from "./JobExperiences";
 interface ExperienceItem {
    image: string;
    title: string | number;
+   cert?: string;
 }
 interface JobExperienceItem {
    jobTitle: string;
@@ -33,6 +34,7 @@ const Experience: React.FC<ExperienceAndJobsProps> = ({ experiences, jobsExperie
                         key={index} // Unique key for each item
                         image={exp.image}
                         title={exp.title}
+                        cert={exp.cert}
                      ></IndividualExp>
                   );
                })}

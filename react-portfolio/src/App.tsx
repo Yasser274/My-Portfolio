@@ -4,9 +4,11 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
 import Experience from "./components/Experience/Experience";
+import Projects from "./components/Projects/Projects";
 
-// Experience List
+// Experience Data and other Data
 import { experienceData, jobsExperienceData } from "./data/experienceAndSkillsData";
+import { projectsData } from "./data/ProjectsData";
 
 function App() {
    return (
@@ -15,6 +17,7 @@ function App() {
          <Hero></Hero>
          <About></About>
          <Experience experiences={experienceData} jobsExperiences={jobsExperienceData}></Experience>
+         <Projects projects={projectsData}></Projects>
       </div>
    );
 }

@@ -47,7 +47,7 @@ const JobExperiences: React.FC<JobExperienceProps> = ({
             <>{MakeJobItem({ companyName, companyLogo, jobTitle, date, points })}</>
          ) : (
             <div className={styles.emptyJobExp}>
-               <h4>Currently seeking opportunities</h4>
+               <h4>Currently seeking job opportunities</h4>
             </div>
          )}
       </div>

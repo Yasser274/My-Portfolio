@@ -5,6 +5,20 @@
    z-index: 1;
    margin-left: 10%;
    margin-right: 10%;
+   opacity: 0; /* doesn't appear only until visible class gets added */
+}
+.projectsCon.visible {
+  animation: fadeInLeft 1.2s ease-out forwards;
+}
+@keyframes fadeInLeft {
+  0% {
+     opacity: 0;
+     transform: translateX(-100px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateX(0);
+  }
 }
 .projectTitle {
    color: var(--color-text);

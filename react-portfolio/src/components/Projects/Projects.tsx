@@ -1,5 +1,7 @@
 import styles from "./Projects.module.css";
 import { getImageUrl } from "../../utils";
+import { useRef } from "react";
+import { SectionAppearFadeEffect } from "../Effects/ImageEffectsAndOtherEffects";
 
 interface ProjectsProps {
    projectName: string | number;
@@ -14,9 +16,15 @@ interface ProjectsPropsArray {
 }
 
 const Projects: React.FC<ProjectsPropsArray> = ({ projects }) => {
+   const sectionRef = useRef<HTMLDivElement>(null);
+
+
+     SectionAppearFadeEffect(sectionRef,styles.visible)
+
+
    return (
       <section>
-         <div className={styles.projectsCon} id="projects">
+         <div className={styles.projectsCon} id="projects" ref={sectionRef}>
             <h2 className={styles.projectTitle}>Projects</h2>
             <div className={styles.projectItemsCon}>
                {projects.map((project, index) => (

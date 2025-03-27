@@ -2,6 +2,8 @@ import styles from "./Experience.module.css";
 import { getImageUrl } from "../../utils";
 import IndividualExp from "./IndividualExp";
 import JobExperiences from "./JobExperiences";
+import { useRef } from "react";
+import { SectionAppearFadeEffect } from "../Effects/ImageEffectsAndOtherEffects";
 
 interface ExperienceItem {
    image: string;
@@ -22,8 +24,12 @@ interface ExperienceAndJobsProps {
 }
 
 const Experience: React.FC<ExperienceAndJobsProps> = ({ experiences, jobsExperiences }) => {
+   const sectionRef = useRef<HTMLElement>(null);
+
+   SectionAppearFadeEffect(sectionRef, styles.visible);
+
    return (
-      <section id="experience" className={styles.sectionExp}>
+      <section id="experience" className={styles.sectionExp} ref={sectionRef}>
          <h2 className={styles.bigTitle}>Experience & Skills</h2>
          <div className={styles.expCon}>
             {/* go through an array and for how many there is return one by one */}

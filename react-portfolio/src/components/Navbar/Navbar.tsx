@@ -16,12 +16,12 @@ const Navbar = () => {
          // Get the navbar's absolute top position and height
          const navbarTop = navbarRef.current?.getBoundingClientRect().top + window.scrollY;
          const navbarHeight = navbarRef.current.offsetHeight;
-         initialNavbarBottom.current = navbarTop + navbarHeight; // Bottom edge of navbar
+         initialNavbarBottom.current = navbarTop + navbarHeight + 75; // Bottom edge of navbar
       }
       const handleScroll = () => {
          const scrollPosition = window.scrollY;
          // Only set sticky when scrolled past the initial bottom position
-         setIsSticky(scrollPosition > initialNavbarBottom.current);// ? turn isSticky to true when this condition is true
+         setIsSticky(scrollPosition > initialNavbarBottom.current );// ? turn isSticky to true when this condition is true
       };
       // Add scroll event listener
       window.addEventListener("scroll", handleScroll);

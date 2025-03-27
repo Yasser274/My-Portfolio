@@ -8,19 +8,17 @@
    margin: 0 5%;
    backdrop-filter: blur(10px);
    -webkit-backdrop-filter: blur(10px);
-   background-color: rgba(0, 0, 0, 0.534);
    box-sizing: border-box;
    border-radius: 24px;
    z-index: 2;
    margin-top: 12px;
-   /* Transition only specific properties */
-   transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-               width 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-               left 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-   /* Default animation when not sticky */
+   transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      left 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
    animation: NavBackToNormal 0.4s ease-in-out forwards;
+   background-color: rgba(43, 43, 43, 0.555);
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.459);
 }
+
 
 .sticky {
    position: fixed;
@@ -28,10 +26,14 @@
    width: 90%;
    left: 5%; /* Ensures alignment */
    margin: 0; /* Overrides margin */
-   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.459);
    /* Animation when becoming sticky */
    animation: slowlyAppearNavWhenScroll 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+   /* --- Background for Dithering --- */
+   background-color: rgba(43, 43, 43, 0.555);
 }
+
 
 @keyframes slowlyAppearNavWhenScroll {
    0% {
@@ -112,6 +114,12 @@
    }
 }
 /* ***Responsive */
+
+@media (width >= 900px) {
+   .navbar{
+      padding: 20px 60px;
+   }
+}
 
 @media (width <= 830px) {
    .navbar {

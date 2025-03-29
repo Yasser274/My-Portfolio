@@ -1,0 +1,41 @@
+@import "../../Styles/vars.css";
+
+.samplesSection{
+  margin-top: 120px;
+  z-index: 1;
+  margin-left: 10%;
+  margin-right: 10%;
+  opacity: 0; /* doesn't appear only until visible class gets added */
+}
+.samplesSection.visible{
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+@keyframes fadeInUp {
+  0% {
+     opacity: 0;
+     transform: translateY(50px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateY(0);
+  }
+}
+.samplesTitle{
+  color: var(--color-text);
+  font-size: 2.2rem;
+  font-weight: 800;
+  position: relative;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: inline-flex;
+}
+.samplesTitle::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 107%;
+  height: 4px;
+  background: rgb(9, 32, 63);
+  background: linear-gradient(63deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+}

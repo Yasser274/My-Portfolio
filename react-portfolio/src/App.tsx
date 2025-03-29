@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
@@ -9,6 +8,8 @@ import Projects from "./components/Projects/Projects";
 // Experience Data and other Data
 import { experienceData, jobsExperienceData } from "./data/experienceAndSkillsData";
 import { projectsData } from "./data/ProjectsData";
+import Contact from "./components/Contact/Contact";
+import Samples from "./components/Samples/Samples";
 
 function App() {
    return (
@@ -18,6 +19,8 @@ function App() {
          <About></About>
          <Experience experiences={experienceData} jobsExperiences={jobsExperienceData}></Experience>
          <Projects projects={projectsData}></Projects>
+         <Samples></Samples>
+         <Contact></Contact>
       </div>
    );
 }

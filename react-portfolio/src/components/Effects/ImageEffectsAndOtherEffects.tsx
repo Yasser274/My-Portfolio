@@ -52,7 +52,7 @@ export const ImageEffects: React.FC<ImageEffectsProps> = ({ src, alt }) => {
 
 //? that's a function that takes a Ref and a style(string)
 export const SectionAppearFadeEffect = (
-  ref: RefObject<HTMLElement | null>,
+  ref: RefObject<HTMLElement | null>, //takes a ref
   style: string
 ) => {
   useEffect(() => {

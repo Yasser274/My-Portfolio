@@ -1,5 +1,5 @@
 import styles from "./About.module.css";
-import { getImageUrl } from "../../utils";
+import { getImageUrl } from "../../utils/imageUtils";
 import {ImageEffects} from "../Effects/ImageEffectsAndOtherEffects";
 import { useEffect,useRef } from "react";
 

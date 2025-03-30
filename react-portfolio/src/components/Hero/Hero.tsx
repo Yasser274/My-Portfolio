@@ -1,4 +1,4 @@
-import { getImageUrl } from "../../utils";
+import { getImageUrl } from "../../utils/imageUtils";
 import styles from './Hero.module.css'
 
 const Hero = () => {

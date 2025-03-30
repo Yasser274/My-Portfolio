@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./Navbar.module.css";
-import { getImageUrl } from "../../utils";
+import { getImageUrl } from "../../utils/imageUtils";
 
 const Navbar = () => {
    const [isSticky, setIsSticky] = useState<boolean>(false);

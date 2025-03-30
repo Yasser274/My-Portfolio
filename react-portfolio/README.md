@@ -8,16 +8,16 @@ A personal portfolio website built with **React**, **TypeScript**, and **Vite**,
 
 ## 🛠️ Tech Stack
 
-    **Framework & Language**: React, TypeScript, Vite
+- **Framework & Language**: React, TypeScript, Vite
 
-    **Markup & Styling**: HTML, CSS
+- **Markup & Styling**: HTML, CSS
 
 ## 📌 Features
 
-✅ **Responsive Design** – Optimized for all devices
-✅ **Projects Showcase** – Highlights my best work
-✅ **Contact Form** – Easy way to get in touch
-✅ **Fast & Lightweight** – Powered by Vite
+- ✅ **Responsive Design** – Optimized for all devices
+- ✅ **Projects Showcase** – Highlights my best work
+- ✅ **Contact Form** – Easy way to get in touch
+- ✅ **Fast & Lightweight** – Powered by Vite
 
 ## 📸 Screenshots
 

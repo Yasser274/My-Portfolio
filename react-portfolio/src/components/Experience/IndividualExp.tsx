@@ -1,5 +1,5 @@
 import styles from "./Experience.module.css";
-import { getImageUrl } from "../../utils";
+// import { getImageUrl } from "../../utils";
 
 interface IndividualExpProps {
    image: string;

@@ -1,5 +1,5 @@
 import styles from "./Experience.module.css";
-import { getImageUrl } from "../../utils";
+// import { getImageUrl } from "../../utils";
 import IndividualExp from "./IndividualExp";
 import JobExperiences from "./JobExperiences";
 import { useRef } from "react";

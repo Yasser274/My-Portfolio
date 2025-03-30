@@ -1,5 +1,5 @@
 import styles from "./Projects.module.css";
-import { getImageUrl } from "../../utils";
+// import { getImageUrl } from "../../utils";
 import { useRef } from "react";
 import { SectionAppearFadeEffect } from "../Effects/ImageEffectsAndOtherEffects";
 

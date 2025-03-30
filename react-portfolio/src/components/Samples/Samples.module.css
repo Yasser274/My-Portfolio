@@ -1,41 +1,189 @@
 @import "../../Styles/vars.css";
 
-.samplesSection{
-  margin-top: 120px;
-  z-index: 1;
-  margin-left: 10%;
-  margin-right: 10%;
-  opacity: 0; /* doesn't appear only until visible class gets added */
+.samplesSection {
+   margin-top: 120px;
+   z-index: 1;
+   margin-left: 10%;
+   margin-right: 10%;
+   opacity: 0; /* doesn't appear only until visible class gets added */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 40px;
 }
-.samplesSection.visible{
-  animation: fadeInUp 1.2s ease-out forwards;
+.samplesSection.visible {
+   animation: fadeInUp 1.2s ease-out forwards;
 }
 @keyframes fadeInUp {
-  0% {
-     opacity: 0;
-     transform: translateY(50px);
-  }
-  100% {
-     opacity: 1;
-     transform: translateY(0);
-  }
+   0% {
+      opacity: 0;
+      transform: translateY(50px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }
-.samplesTitle{
-  color: var(--color-text);
-  font-size: 2.2rem;
-  font-weight: 800;
-  position: relative;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  display: inline-flex;
+.samplesTitle {
+   color: var(--color-text);
+   font-size: 2.2rem;
+   font-weight: 800;
+   position: relative;
+   letter-spacing: 3px;
+   text-transform: uppercase;
+   display: inline-flex;
 }
-.samplesTitle::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 5px;
-  width: 107%;
-  height: 4px;
-  background: rgb(9, 32, 63);
-  background: linear-gradient(63deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+.samplesTitle::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   bottom: 5px;
+   width: 107%;
+   height: 4px;
+   background: rgb(9, 32, 63);
+   background: linear-gradient(63deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+}
+.imgSliderCon {
+   width: 100%; /* Take full width of sliderArea */
+   max-width: 1000px;
+   margin: 0 auto;
+   position: relative;
+   overflow: hidden; /* <<< KEY: Hide slides outside the container */
+   border-radius: 10px;
+   aspect-ratio: 16 /9;
+}
+
+.sliderArea {
+   position: relative; /* Needed for positioning arrows */
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   gap: 20px;
+}
+/* The element that moves horizontally */
+.imgSliderTrack {
+   display: flex; /* Align slides horizontally */
+   height: 100%;
+   transition: transform 0.5s ease-in-out; /* <<< KEY: Smooth sliding animation */
+}
+.imgSliderLeftArrow,
+.imgSliderRightArrow {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%); /* Vertical centering */
+   z-index: 4;
+   cursor: pointer;
+   /* Add some background/padding for easier clicking */
+   background-color: rgba(255, 255, 255, 0.123); /* Semi-transparent background */
+   border-radius: 50%;
+   width: 56px; /* Match SVG size */
+   height: 56px; /* Match SVG size */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: background-color 0.2s ease;
+}
+.imgSliderLeftArrow {
+   left: -60px; /* Position outside the slider area */
+}
+
+.imgSliderRightArrow {
+   right: -60px; /* Position outside the slider area */
+}
+
+.imgSliderRightArrow svg,
+.imgSliderLeftArrow svg {
+   width: 48px; /* Control icon size within the button */
+   height: 48px; /* Control icon size within the button */
+   display: block; /* Prevent extra space below inline SVGs */
+}
+/* Individual slide styles */
+.imgSlide {
+   min-width: 100%; /*Each slide takes full container width  */
+   height: 100%;
+   border-radius: 10px;
+   background-position: center;
+   background-size: cover;
+   cursor: pointer;
+   flex-shrink: 0;
+}
+/* dots under img slider to indicate how many imgs and stuff */
+.imgSliderDotsCon {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.imgSliderDotsCon ul {
+   display: flex;
+   width: 100%;
+   align-items: center;
+   justify-content: center;
+}
+.imgSliderDot {
+   list-style: none;
+}
+.imgSliderDot svg {
+   box-sizing: border-box;
+   display: block; /* Changed from flex; centering is in viewBox */
+   width: 48px; /* Size of the SVG = scaled path size (6 units * 2px/unit) */
+   transition: fill 0.3s ease; /* Optional: for hover/active transitions */
+   cursor: pointer;
+}
+.imgSliderDot svg g path {
+   transition: fill 0.3s ease;
+}
+.imgSliderDot svg.activeDot {
+   stroke: white;
+}
+.imgSliderDot svg:hover path {
+   fill: #a0b8c9; /* Hover color */
+}
+/* Fullscreen Img view */
+.fullScreenCon {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.85);
+   z-index: 1000; /* High z-index */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 20px;
+   box-sizing: border-box;
+   overflow: hidden;
+}
+.fullScreenCon img {
+   border-radius: 14px;
+   width: auto;
+   position: absolute;
+   max-width: 90%;
+   max-height: 90%;
+}
+.fullScreenCloseBtn {
+   position: absolute;
+   top: 15px;
+   right: 15px;
+   z-index: 1001;
+   cursor: pointer;
+   width: 96px;
+}
+
+/* ***Responsive */
+@media (width <= 830px) {
+   .imgSliderRightArrow svg,
+   .imgSliderLeftArrow svg {
+      width: 24px; /* Control icon size within the button */
+      height: 24px; /* Control icon size within the button */
+   }
+   .imgSliderLeftArrow {
+      left: -20px;
+   }
+   .imgSliderRightArrow {
+      right: -20px;
+   }
 }

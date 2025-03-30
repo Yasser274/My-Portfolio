@@ -39,24 +39,24 @@ const About = () => {
             <ImageEffects src={getImageUrl("about/About-Img.png")} alt="About Me"/>
             <ul className={styles.aboutsCon}>
                <li>
-                  <img src={getImageUrl("about/analytics.png")} alt="" className={styles.smallImgs} />
+                  <img src={getImageUrl("about/marketing.png")} alt="" className={styles.smallImgs} />
                   <div className={styles.smallCons}>
-                     <h3 className={styles.smallTitle}>kgsijhtehko</h3>
-                     <p>hehmetkop hme ophmeoth meitph metiphi</p>
+                     <h3 className={styles.smallTitle}>Marketing</h3>
+                     <p>Crafting compelling campaigns and understanding consumer behavior</p>
                   </div>
                </li>
                <li>
                   <img src={getImageUrl("about/analytics.png")} alt="" className={styles.smallImgs} />
                   <div className={styles.smallCons}>
-                     <h3 className={styles.smallTitle}>kgsijhtehko</h3>
-                     <p>hehmetkop hme ophmeoth meitph metiphi</p>
+                     <h3 className={styles.smallTitle}>Analytics</h3>
+                     <p>Using data insights to optimize marketing efforts and measure success.</p>
                   </div>
                </li>
                <li>
-                  <img src={getImageUrl("about/analytics.png")} alt="" className={styles.smallImgs} />
+                  <img src={getImageUrl("about/technology.png")} alt="" className={styles.smallImgs} />
                   <div className={styles.smallCons}>
-                     <h3 className={styles.smallTitle}>kgsijhtehko</h3>
-                     <p>hehmetkop hme ophmeoth meitph metiphi</p>
+                     <h3 className={styles.smallTitle}>Technology</h3>
+                     <p>Leveraging the latest tools and platforms to stay ahead in digital marketing</p>
                   </div>
                </li>
             </ul>

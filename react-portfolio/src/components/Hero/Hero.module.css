@@ -30,8 +30,11 @@
 }
 .desc {
    font-family: var(--font-primary);
-   font-size: 1.7rem;
+   font-size: 1.4rem;
    margin-bottom: 52px;
+   width: 60%;
+   word-break: break-word;
+   font-weight: 400;
 }
 
 .contactBtn {
@@ -111,7 +114,9 @@
    border-radius: 50%;
    width: 30%;
    z-index: 1;
-
+   max-width: 850px;
+   height: auto;
+   flex-shrink: 0;
    animation-name: floating;
    animation-duration: 3s;
    animation-iteration-count: infinite;

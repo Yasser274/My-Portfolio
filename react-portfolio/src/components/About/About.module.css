@@ -116,6 +116,9 @@
    .aboutsCon {
       width: auto;
    }
+   .aboutsCon li {
+      flex-direction: column;
+   }
 }
 
 @media (min-width: 1200px) {

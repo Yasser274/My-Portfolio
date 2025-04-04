@@ -4,10 +4,10 @@ import React, { useRef, useState, useEffect } from "react";
 
 const imgs: { url: string }[] = [
    {
-      url: "https://i.imgur.com/OoYFuRY.png",
+      url: "https://i.imgur.com/Db2c2aU.png",
    },
    {
-      url: "https://i.imgur.com/qpPjYBz.png",
+      url: "https://i.imgur.com/sxrfRQg.png",
    },
    {
       url: "https://i.imgur.com/YIxCSjI.png",

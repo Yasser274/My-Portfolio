@@ -11,7 +11,7 @@ import { projectsData } from "./data/ProjectsData";
 import Contact from "./components/Contact/Contact";
 import Samples from "./components/Samples/Samples";
 import Cursor from "./components/Effects/Cursor";
-import LoadingScreen from "./components/Effects/LoadingScreen";
+// import LoadingScreen from "./components/Effects/LoadingScreen";
 
 function App() {
    

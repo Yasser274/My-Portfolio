@@ -1,5 +1,5 @@
 import styles from "./Projects.module.css";
-// import { getImageUrl } from "../../utils";
+// import { getImageUrl } from "../../utils/imageUtils";
 import { useRef } from "react";
 import { SectionAppearFadeEffect } from "../Effects/ImageEffectsAndOtherEffects";
 
@@ -18,9 +18,7 @@ interface ProjectsPropsArray {
 const Projects: React.FC<ProjectsPropsArray> = ({ projects }) => {
    const sectionRef = useRef<HTMLDivElement>(null);
 
-
-     SectionAppearFadeEffect(sectionRef,styles.visible)
-
+   SectionAppearFadeEffect(sectionRef, styles.visible);
 
    return (
       <section>
@@ -29,7 +27,10 @@ const Projects: React.FC<ProjectsPropsArray> = ({ projects }) => {
             <div className={styles.projectItemsCon}>
                {projects.map((project, index) => (
                   <div className={styles.projectItemBox} key={index}>
-                     <img src={project.projectImg} alt="Project Image" className={styles.projectItemImg} />
+                     <a href={project.projectLinkSite}>
+                        <img src={project.projectImg} alt="Project Image" className={styles.projectItemImg} />
+                     </a>
+
                      <h3 className={styles.projectItemName}>{project.projectName}</h3>
                      <p className={styles.projectItemDesc}>{project.projectDesc}</p>
                      <div className={styles.projectItemTagsCon}>

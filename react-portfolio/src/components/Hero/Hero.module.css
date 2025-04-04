@@ -18,16 +18,107 @@
    color: var(--color-text);
    z-index: 1;
 }
+.nameCon {
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   gap: 80px;
+   width: 70%;
+}
 
 .intro {
    font-size: 3.2rem;
    font-weight: 900;
    margin-bottom: 33px;
-   font-family: var(--font-primary);
-   background: linear-gradient(90deg, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 0) 120%);
-   -webkit-text-fill-color: transparent;
+   background: linear-gradient(90deg, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 120%);
+   -webkit-background-clip: text; /* Add prefixed version */
    background-clip: text;
+   -webkit-text-fill-color: transparent;
+   color: transparent;
+   font-family: var(--font-primary);
 }
+.myName {
+   font-size: 3.2rem;
+   font-weight: 900;
+   font-family: var(--font-primary);
+   transform-origin: center;
+   -webkit-animation: focus-in-expandDesk 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+   animation: focus-in-expandDesk 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+   text-align: center;
+   margin-left: 4px;
+   display: inline-block;
+   vertical-align: baseline; /* better alignment */
+}
+/* Desktop Animation for myName */
+@-webkit-keyframes focus-in-expandDesk {
+   0% {
+      letter-spacing: -0.5em;
+      /* Apply translateX to shift right */
+      -webkit-transform: translateX(0.75em);
+      transform: translateX(0.75em);
+      -webkit-filter: blur(12px);
+      filter: blur(12px);
+      opacity: 0;
+   }
+   100% {
+      letter-spacing: normal; /* Or specific value like 0 or initial */
+      /* Return to normal position */
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+      opacity: 1;
+   }
+}
+@keyframes focus-in-expandDesk {
+   0% {
+      letter-spacing: -0.5em;
+      /* Apply translateX to shift right */
+      -webkit-transform: translateX(0.75em);
+      transform: translateX(0.75em);
+      -webkit-filter: blur(12px);
+      filter: blur(12px);
+      opacity: 0;
+   }
+   100% {
+      letter-spacing: normal; /* Or specific value like 0 or initial */
+      /* Return to normal position */
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+      opacity: 1;
+   }
+}
+
+/* Mobile Animation for myName */
+@-webkit-keyframes focus-in-expand {
+   0% {
+      letter-spacing: -0.5em;
+      -webkit-filter: blur(12px);
+      filter: blur(12px);
+      opacity: 0;
+   }
+   100% {
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+      opacity: 1;
+   }
+}
+@keyframes focus-in-expand {
+   0% {
+      letter-spacing: -0.5em;
+      -webkit-filter: blur(12px);
+      filter: blur(12px);
+      opacity: 0;
+   }
+   100% {
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+      opacity: 1;
+   }
+}
+
 .desc {
    font-family: var(--font-primary);
    font-size: 1.4rem;
@@ -173,7 +264,18 @@
    .cont {
       align-items: center;
    }
-   .intro{
+   .intro {
       text-align: center;
+   }
+}
+@media (width <= 604px) {
+   .nameCon{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .intro{
+      display: flex;
+      flex-direction: column;
    }
 }

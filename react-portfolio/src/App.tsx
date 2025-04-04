@@ -10,10 +10,15 @@ import { experienceData, jobsExperienceData } from "./data/experienceAndSkillsDa
 import { projectsData } from "./data/ProjectsData";
 import Contact from "./components/Contact/Contact";
 import Samples from "./components/Samples/Samples";
+import Cursor from "./components/Effects/Cursor";
+import LoadingScreen from "./components/Effects/LoadingScreen";
 
 function App() {
+   
    return (
       <div className={styles.App}>
+         <Cursor></Cursor>
+         {/* <LoadingScreen></LoadingScreen> */}
          <Navbar></Navbar>
          <Hero></Hero>
          <About></About>

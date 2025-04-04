@@ -16,6 +16,43 @@
    transition: transform 0.2s ease;
 }
 
+/* *Cursor */
+button,
+a,
+*[onclick] {
+   cursor: none !important;
+}
+.curzr {
+   position: fixed;
+   pointer-events: none;
+   will-change: transform;
+   display: block;
+}
+
+/* *Loading */
+
+.loadingScreen {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100vh;
+   width: 100vw;
+   z-index: 200; /* Ensure it’s above all content */
+   background-color: rgb(145, 145, 145); /* Base color covering the page */
+   overflow: hidden;
+   transition: opacity 0.3s ease-in-out; /* Smooth fade-out when hidden */
+}
+
+.loadingScreenVisible {
+   opacity: 1; /* Fully visible during animation */
+}
+
+.loadingScreenHidden {
+   opacity: 0; /* Fade out after animation */
+   pointer-events: none; /* Prevent interaction when hidden */
+}
+
+
 /* ***Responsive */
 
 @media (width <= 830px) {

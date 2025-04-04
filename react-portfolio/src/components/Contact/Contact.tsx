@@ -2,7 +2,6 @@ import styles from "../Experience/Experience.module.css";
 import { getImageUrl } from "../../utils/imageUtils"; 
 
 const Contact = () => {
-   console.log(getImageUrl("contact/github-ICO.svg"))
    return (
       <section id="contact" className={styles.sectionContact}>
          <div className={styles.contactBigCon}>

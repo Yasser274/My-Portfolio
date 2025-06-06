@@ -74,7 +74,7 @@
    top: 50%;
    transform: translateY(-50%); /* Vertical centering */
    z-index: 4;
-   cursor: pointer;
+   cursor: none;
    /* Add some background/padding for easier clicking */
    background-color: rgba(255, 255, 255, 0.123); /* Semi-transparent background */
    border-radius: 50%;
@@ -106,7 +106,7 @@
    border-radius: 10px;
    background-position: center;
    background-size: cover;
-   cursor: pointer;
+   cursor: none;
    flex-shrink: 0;
 }
 /* dots under img slider to indicate how many imgs and stuff */

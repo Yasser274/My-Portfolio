@@ -32,12 +32,13 @@ const Cursor = () => {
           width: `${this.cursorSize}px`,
           height: `${this.cursorSize}px`,
           backgroundColor: "transparent",
-          border: "1.25px solid #FFFFFF",
+          border: "1.50px solid #FFFFFF",
           borderRadius: "50%",
           transition: "border 0.2s ease,scale 2s ease",
           userSelect: "none",
           pointerEvents: "none",
           willChange: "transform",
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.75)",
           display: "block", // Ensure visibility
           opacity: "1", // Ensure it's not hidden
 
@@ -49,6 +50,7 @@ const Cursor = () => {
           width: `${this.innerSize}px`,
           height: `${this.innerSize}px`,
           backgroundColor: "#FFFFFF",
+          border: "1.25px solid #000000",
           borderRadius: "50%",
           userSelect: "none",
           pointerEvents: "none",
@@ -83,8 +85,9 @@ const Cursor = () => {
         if (
           target &&
           (target.tagName === "BUTTON" ||
-            target.tagName === "A" || target.tagName === 'IMG' ||
+            target.tagName === "A"  ||
             target.onclick !== null ||
+            target.closest("a") ||
             target.classList.contains("curzr-hover"))
         ) {
           this.hover();

@@ -88,9 +88,8 @@ const Samples = () => {
             </div>
             {/* Added a wrapper for arrows + slider */}
             <div className={styles.sliderArea}>
-               <div className={styles.imgSliderLeftArrow}>
+               <div className={`${styles.imgSliderLeftArrow} curzr-hover`} onClick={handleGoToPrevious}>
                   <svg
-                     onClick={handleGoToPrevious}
                      ref={leftArrowRef}
                      height="200px"
                      width="200px"
@@ -101,6 +100,7 @@ const Samples = () => {
                      viewBox="0 0 512 512"
                      xmlSpace="preserve" // Changed xml:space to camelCase
                      fill="#000000"
+                     style={{pointerEvents: 'none'}}
                   >
                      <g>
                         <path
@@ -143,9 +143,8 @@ const Samples = () => {
                </div>
 
                {/* Right arrow */}
-               <div className={styles.imgSliderRightArrow}>
+               <div className={`${styles.imgSliderRightArrow} curzr-hover`} onClick={handleGoToNext}>
                   <svg
-                     onClick={handleGoToNext}
                      ref={rightArrowRef}
                      height="200px"
                      width="200px"
@@ -156,6 +155,7 @@ const Samples = () => {
                      viewBox="0 0 512 512"
                      xmlSpace="preserve"
                      fill="#000000"
+                     style={{ pointerEvents: "none" }}
                   >
                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -184,7 +184,7 @@ const Samples = () => {
                            <li key={index} className={styles.imgSliderDot}>
                               <svg
                                  onClick={() => setCurrentIndex(index)} // ? If you write onClick={setCurrentIndex(index)} without the arrow function, you’re not passing a function—you’re immediately calling setCurrentIndex(index) as soon as the component renders
-                                 viewBox="0 0 24 24" 
+                                 viewBox="0 0 24 24"
                                  fill="none"
                                  xmlns="http://www.w3.org/2000/svg"
                                  stroke="#000000"
@@ -215,7 +215,7 @@ const Samples = () => {
 
          {clickedImg !== null ? ( //? if doesn't equal null(meaning an image was clicked) render this div if does equal null don't do anything
             <div className={styles.fullScreenCon} onClick={handleBackgroundClick}>
-               <div className={styles.fullScreenCloseBtn} onClick={closeFullScreenImg}>
+               <div className={`${styles.fullScreenCloseBtn} curzr-hover`} onClick={closeFullScreenImg}>
                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

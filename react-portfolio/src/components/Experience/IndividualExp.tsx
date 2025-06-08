@@ -17,7 +17,7 @@ const IndividualExp: React.FC<IndividualExpProps> = ({ image, title, cert, moreI
    const videoButtonRef = useRef<HTMLDivElement>(null);
 
    const [clickedInfo, setClickedInfo] = useState<number | null>(null);
-   const [stopScroll, setStopScroll] = useState<number>(0);
+   const [stopScroll, setStopScroll] = useState<boolean>(false);
 
    const [clickedVideo, setClickedVideo] = useState<number | null>(null);
 
@@ -35,29 +35,29 @@ const IndividualExp: React.FC<IndividualExpProps> = ({ image, title, cert, moreI
    };
 
    const showMoreInfo = () => {
-      if (moreInfoButtonRef) {
+      if (moreInfoButtonRef.current) {
          setClickedInfo(1);
-         setStopScroll(1);
+         setStopScroll(true);
       }
    };
    const closeMoreInfo = () => {
       setClickedInfo(null);
-      setStopScroll(0);
+      setStopScroll(false);
    };
 
    const showVideo = () => {
-      if (videoButtonRef) {
+      if (videoButtonRef.current) {
          setClickedVideo(1);
-         setStopScroll(1);
+         setStopScroll(true);
       }
    };
    const closeVideo = () => {
       setClickedVideo(null);
-      setStopScroll(0)
+      setStopScroll(false);
    };
    // UseEffect for body to stop scrolling function
    useEffect(() => {
-      if (stopScroll === 1) {
+      if (stopScroll === true) {
          document.body.style.overflowY = "hidden";
       } else {
          document.body.style.overflowY = "auto";
@@ -153,9 +153,15 @@ const IndividualExp: React.FC<IndividualExpProps> = ({ image, title, cert, moreI
                        </svg>
                     </div>
 
-                    <div className={styles.modalContent}>
+                    <div className={styles.modalContentBig}>
                        <h2 className={styles.modalMoreInfoTitle}>{title}</h2>
-                       <iframe src={video} width="640" height="480" allow="autoplay" allowFullScreen></iframe>
+                       <iframe
+                          src={video}
+                          width="100%"
+                          height="100%"
+                          allow="autoplay"
+                          allowFullScreen
+                       ></iframe>
                     </div>
                  </div>,
 

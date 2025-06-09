@@ -10,9 +10,10 @@ interface IndividualExpProps {
    cert?: string;
    moreInfo?: string;
    video?: string;
+   smallTitle?: string;
 }
 
-const IndividualExp: React.FC<IndividualExpProps> = ({ image, title, cert, moreInfo, video }) => {
+const IndividualExp: React.FC<IndividualExpProps> = ({ image, title, cert, moreInfo, video,smallTitle }) => {
    const moreInfoButtonRef = useRef<HTMLDivElement>(null);
    const videoButtonRef = useRef<HTMLDivElement>(null);
 
@@ -154,7 +155,7 @@ const IndividualExp: React.FC<IndividualExpProps> = ({ image, title, cert, moreI
                     </div>
 
                     <div className={styles.modalContentBig}>
-                       <h2 className={styles.modalMoreInfoTitle}>{title}</h2>
+                       <h2 className={styles.modalMoreInfoTitle}>{smallTitle}</h2>
                        <iframe
                           src={video}
                           width="100%"

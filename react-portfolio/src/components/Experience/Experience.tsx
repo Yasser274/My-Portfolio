@@ -11,6 +11,7 @@ interface ExperienceItem {
    cert?: string;
    moreInfo?: string;
    video?: string;
+   smallTitle?: string;
 }
 interface JobExperienceItem {
    jobTitle: string;
@@ -45,6 +46,7 @@ const Experience: React.FC<ExperienceAndJobsProps> = ({ experiences, jobsExperie
                         cert={exp.cert}
                         moreInfo={exp.moreInfo}
                         video={exp.video}
+                        smallTitle={exp.smallTitle}
                      ></IndividualExp>
                   );
                })}

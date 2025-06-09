@@ -39,6 +39,7 @@ export const experienceData = [
       cert: "https://drive.google.com/file/d/1z2SqooEXTjGRw4N-nHQgUmSDv6riPBqQ/view?usp=drive_link",
       moreInfo: `I couldn't publish my Power BI dashboard because it requires a subscription. Instead, I made a video showcasing it.`,
       video:'https://drive.google.com/file/d/1h4xDuGFnolRsboN30oPgimR6t0eWcYnX/preview',
+      smallTitle:'Power BI Sample of My Report'
    },
    {
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/512px-WordPress_blue_logo.svg.png",

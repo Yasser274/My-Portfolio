@@ -60,11 +60,11 @@ export const experienceData = [
 ];
 export const jobsExperienceData = [
    {
-      jobTitle: "",
-      companyName: "",
-      companyLogo: "",
-      date: ``,
-      points: ["", ""],
+      jobTitle: "Intern",
+      companyName: "Almosafer",
+      companyLogo: "https://seera.sa/wp-content/uploads/2019/04/Almosafer-01.png",
+      date: `April 2025 - July 2025`,
+      points: ["Conducted competitive analysis and developed customer journey maps.", "Managed advertising budgets, scheduled ad postings.","Gained expertise in market trend analysis, and targeted demographic strategies, leveraging Almosafer’s understanding of local audiences for competitive advantage.","Track and analyze marketing campaigns."],
    },
    // {
    //    jobTitle: "Intern",

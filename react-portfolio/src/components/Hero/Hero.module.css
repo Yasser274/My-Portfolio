@@ -11,6 +11,37 @@
    margin-right: 10%;
 }
 
+/*  Keyframes animation for the border effect --- */
+@keyframes animate-border-flow {
+   0% {
+      background-position: 0% 50%;
+   }
+   50% {
+      background-position: 100% 50%;
+   }
+   100% {
+      background-position: 0% 50%;
+   }
+}
+.animatedTextBorder {
+   /* 1. Set the background to an animated gradient */
+   background: linear-gradient(90deg, #537895 0%, #ffffff 50%, #537895 100%);
+   background-size: 200% auto; /* Make the gradient wider than the text to animate it */
+
+   /* Clip the background to the text shape */
+   -webkit-background-clip: text;
+   background-clip: text;
+
+   /* Make the text fill color transparent */
+   -webkit-text-fill-color: transparent;
+
+   /* Create the border using text-stroke */
+   -webkit-text-stroke: 2px transparent; /* We use a transparent stroke color because the background will show through */
+
+   /* Apply the animation */
+   animation: animate-border-flow 4s ease-in-out infinite;
+}
+
 .cont {
    display: flex;
    flex-direction: column;
@@ -30,11 +61,11 @@
    font-size: 3.2rem;
    font-weight: 900;
    margin-bottom: 33px;
-   background: linear-gradient(90deg, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 120%);
-   -webkit-background-clip: text; /* Add prefixed version */
+   /* background: linear-gradient(90deg, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 120%);
+   -webkit-background-clip: text; /* Add prefixed version 
    background-clip: text;
-   -webkit-text-fill-color: transparent;
-   color: transparent;
+   -webkit-text-fill-color: transparent; */
+   color: #cdd3dc;
    font-family: var(--font-primary);
 }
 .myName {
@@ -48,6 +79,8 @@
    margin-left: 4px;
    display: inline-block;
    vertical-align: baseline; /* better alignment */
+   animation: focus-in-expandDesk 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+      /* Run this once */ animate-border-flow 4s ease-in-out 1.5s infinite; /* Start this after a delay */
 }
 /* Desktop Animation for myName */
 @-webkit-keyframes focus-in-expandDesk {
@@ -269,12 +302,12 @@
    }
 }
 @media (width <= 604px) {
-   .nameCon{
+   .nameCon {
       display: flex;
       align-items: center;
       justify-content: center;
    }
-   .intro{
+   .intro {
       display: flex;
       flex-direction: column;
    }

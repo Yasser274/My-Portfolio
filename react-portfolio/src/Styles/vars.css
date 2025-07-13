@@ -26,4 +26,23 @@
       15.3px 10px 23.6px -1px hsl(var(--shadow-color) / 0.12),
       22.3px 14.6px 34.4px -1.2px hsl(var(--shadow-color) / 0.13),
       31.9px 20.9px 49.2px -1.4px hsl(var(--shadow-color) / 0.14);
+
+   /* Border designs */
+   --surface-1: var(--primary-900);
+   --surface-2: var(--primary-800);
+   --surface-3: var(--primary-700);
+
+   --border-1: var(--primary-500); /* top */
+   --border-2: var(--primary-600); /* bottom */
+   
+   --primary-900: hsl(256, 43%, 7%);
+   --primary-800: hsl(240, 24%, 13%);
+   --primary-700: hsl(243, 26%, 15%);
+   --primary-600: hsl(252, 9%, 22%);
+   --primary-500: hsl(259, 13%, 28%);
+   --primary-400: hsl(254, 22%, 32%);
+
+   --primary-300: hsl(251, 13%, 68%);
+   --primary-200: hsl(240, 15%, 76%);
+   --primary-100: hsl(240, 21%, 88%);
 }

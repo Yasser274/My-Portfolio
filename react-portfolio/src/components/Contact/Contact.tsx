@@ -23,7 +23,7 @@ const Contact = () => {
                      alt="Linkedin Icon"
                      className={styles.contactIcons}
                   />
-                  <a href="https://www.linkedin.com/in/yasser-a-b65a8723b/">
+                  <a href="https://www.linkedin.com/in/yasser-alsuwaid-b65a8723b/">
                      <address className={styles.contactInfo}>Yasser A</address>
                   </a>
                </div>

@@ -57,8 +57,10 @@
    border-radius: 1rem;
 
    border: transparent 1px solid;
-   background: radial-gradient(circle at 50% 250%, var(--primary-500), var(--surface-2)) padding-box, /*Add gradient in padding box and the other for border box(border) */
-      linear-gradient(var(--border-1), var(--border-2)) border-box;
+   background: radial-gradient(circle at 50% 250%, var(--primary-500), var(--surface-2)) padding-box,
+      /*Add gradient in padding box and the other for border box(border) */
+         linear-gradient(var(--border-1), var(--border-2)) border-box;
+   height: 100%;
 }
 .projectItemImg {
    border-radius: 20px;

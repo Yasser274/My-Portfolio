@@ -11,7 +11,9 @@ import { projectsData } from "./data/ProjectsData";
 import Contact from "./components/Contact/Contact";
 import Samples from "./components/Samples/Samples";
 import Cursor from "./components/Effects/Cursor";
+import Certs from "./components/certsCon/certs";
 // import LoadingScreen from "./components/Effects/LoadingScreen";
+import { CertData } from "./data/CertData";
 
 function App() {
    
@@ -24,6 +26,7 @@ function App() {
          <About></About>
          <Experience experiences={experienceData} jobsExperiences={jobsExperienceData}></Experience>
          <Projects projects={projectsData}></Projects>
+         <Certs certData={CertData}></Certs>
          <Samples></Samples>
          <Contact></Contact>
       </div>

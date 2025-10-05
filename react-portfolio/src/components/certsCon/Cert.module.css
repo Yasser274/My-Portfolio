@@ -1,0 +1,119 @@
+.certSection {
+   margin-top: 120px;
+   z-index: 1;
+   margin-left: 10%;
+   margin-right: 10%;
+   opacity: 0; /* doesn't appear only until visible class gets added */
+   position: relative;
+}
+.certSection.visible {
+   animation: fadeInLeft 1.2s ease-out forwards;
+}
+@keyframes fadeInLeft {
+   0% {
+      opacity: 0;
+      transform: translateX(-100px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+.certTitle {
+   color: var(--color-text);
+   font-size: 2.2rem;
+   font-weight: 800;
+   position: relative;
+   letter-spacing: 3px;
+   text-transform: uppercase;
+   display: inline-flex;
+   word-break: break-all;
+}
+.certTitle::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   bottom: 5px;
+   width: 107%;
+   height: 4px;
+   background: rgb(9, 32, 63);
+   background: linear-gradient(63deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+}
+.certCon {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 24px;
+   margin-top: 15px;
+}
+.indivCertBox {
+   display: flex;
+   flex-direction: column-reverse;
+   align-items: center;
+   gap: 1.2rem;
+   padding: 20px;
+   border-radius: 20px;
+   border: 1px solid #2a3a57;
+   transition: all 0.3s ease-in-out;
+   background: radial-gradient(circle at 50% 250%, var(--primary-500), var(--surface-2)) padding-box,
+      linear-gradient(var(--border-1), var(--border-2)) border-box;
+}
+.indivCertBox:hover {
+   transform: translateY(-3px);
+   border-color: #537895;
+   box-shadow: 0 10px 15px -3px rgba(83, 120, 149, 0.2), 0 4px 6px -4px rgba(83, 120, 149, 0.2);
+}
+.certDetails {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.certTitleName {
+   font-weight: 800;
+   font-size: 1.3rem;
+   letter-spacing: 0.11rem;
+}
+.certImgBox {
+   display: flex;
+   justify-content: flex-end;
+}
+
+.certProv {
+   font-weight: 600;
+   font-size: 1.1rem;
+   color: #a0aec0;
+}
+.certImg {
+   width: clamp(250px, 80vw, 600px);
+   border-radius: 1rem;
+}
+
+.bottomCerBlur {
+   position: absolute;
+   width: 45vw;
+   height: 50vh;
+   min-width: 350px;
+   min-height: 250px;
+   top: 50%;
+   transform: translateY(-50%);
+   right: 20vw;
+   border-radius: 764px;
+   background: rgba(25, 55, 109, 0.7);
+   filter: blur(100px);
+   z-index: -1;
+   overflow: hidden;
+}
+
+/* ========
+/*. RESPONSIVE
+========= */
+@media (width >= 1580px) {
+  .certCon{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (width <= 838px) {
+  .indivCertBox{
+    padding: 10px 8px;
+  }
+}

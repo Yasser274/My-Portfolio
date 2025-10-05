@@ -78,6 +78,12 @@
    font-weight: 400;
    margin-bottom: 17px;
 }
+.projectParagraph {
+   margin-bottom: 4px;
+}
+.bold {
+   font-weight: 800;
+}
 .projectItemTagsCon {
    display: flex;
    align-items: center;

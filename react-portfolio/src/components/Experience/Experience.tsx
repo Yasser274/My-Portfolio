@@ -66,6 +66,8 @@ const Experience: React.FC<ExperienceAndJobsProps> = ({ experiences, jobsExperie
                })}
             </div>
          </div>
+         {/* For the Blue Dot Blur background */}
+         <div className={styles.expBlur}></div>
       </section>
    );
 };

@@ -2,17 +2,10 @@ import styles from "./Projects.module.css";
 // import { getImageUrl } from "../../utils/imageUtils";
 import { useRef } from "react";
 import { SectionAppearFadeEffect } from "../Effects/ImageEffectsAndOtherEffects";
+import { ProjectsDataTypes } from "../../data/ProjectsData";
 
-interface ProjectsProps {
-   projectName: string | number;
-   projectImg: string;
-   projectDesc: string;
-   projectTags: string[] | number[];
-   projectLinkSource?: string;
-   projectLinkSite?: string;
-}
 interface ProjectsPropsArray {
-   projects: ProjectsProps[];
+   projects: ProjectsDataTypes[];
 }
 
 const Projects: React.FC<ProjectsPropsArray> = ({ projects }) => {
@@ -32,7 +25,19 @@ const Projects: React.FC<ProjectsPropsArray> = ({ projects }) => {
                      </a>
 
                      <h3 className={styles.projectItemName}>{project.projectName}</h3>
-                     <p className={styles.projectItemDesc}>{project.projectDesc}</p>
+                     <div className={styles.projectItemDesc}>
+                        {project.projectDesc.map((paragraph, i) => {
+                           // check Bold Or Not
+                           const paragraphClassName = `${styles.projectParagraph} ${
+                              paragraph.isBold ? styles.bold : ""
+                           }`;
+                           return (
+                              <p key={i} className={paragraphClassName}>
+                                 {paragraph.text}
+                              </p>
+                           );
+                        })}
+                     </div>
                      <div className={styles.projectItemTagsCon}>
                         {project.projectTags.map((tag: string | number, index: number) => (
                            <div className={styles.projectTag} key={index}>

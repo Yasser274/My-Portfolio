@@ -4,6 +4,7 @@ import { SectionAppearFadeEffect } from "../Effects/ImageEffectsAndOtherEffects"
 import { useRef } from "react";
 
 interface CertsProps {
+   id: number;
    certName: string;
    certImg: string;
    certProvider: string;
@@ -24,7 +25,7 @@ const Certs = ({ certData }: CertsArray) => {
             <div className={styles.certCon}>
                {certData.map((cert) => {
                   return (
-                     <div className={styles.indivCertBox}>
+                     <div key={cert.id} className={styles.indivCertBox}>
                         <div className={styles.certDetails}>
                            <h3 className={styles.certTitleName}>{cert.certName}</h3>
                            <h4 className={styles.certProv}>{cert.certProvider}</h4>

@@ -300,6 +300,9 @@
    .intro {
       text-align: center;
    }
+      .desc{
+      width: 100%;
+   }
 }
 @media (width <= 604px) {
    .nameCon {

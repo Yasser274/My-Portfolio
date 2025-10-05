@@ -11,7 +11,7 @@ import { projectsData } from "./data/ProjectsData";
 import Contact from "./components/Contact/Contact";
 import Samples from "./components/Samples/Samples";
 import Cursor from "./components/Effects/Cursor";
-import Certs from "./components/certsCon/certs";
+import Certs from "./components/CertsCon/Certs";
 // import LoadingScreen from "./components/Effects/LoadingScreen";
 import { CertData } from "./data/CertData";
 

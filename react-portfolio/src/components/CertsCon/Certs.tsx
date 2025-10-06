@@ -2,12 +2,14 @@ import styles from "./Cert.module.css";
 
 import { SectionAppearFadeEffect } from "../Effects/ImageEffectsAndOtherEffects";
 import { useRef } from "react";
+import { GlowingCard, GlowingCards } from "../common/GlowingCards";
 
 interface CertsProps {
    id: number;
    certName: string;
    certImg: string;
    certProvider: string;
+   glowColor: string;
 }
 interface CertsArray {
    certData: CertsProps[];
@@ -20,12 +22,12 @@ const Certs = ({ certData }: CertsArray) => {
 
    return (
       <section>
-         <div className={styles.certSection} ref={sectionRef}>
+         <div className={styles.certSection} ref={sectionRef} id="certifications">
             <h2 className={styles.certTitle}>Certifications</h2>
-            <div className={styles.certCon}>
+            <GlowingCards>
                {certData.map((cert) => {
                   return (
-                     <div key={cert.id} className={styles.indivCertBox}>
+                     <GlowingCard key={cert.id} glowColor={cert.glowColor}>
                         <div className={styles.certDetails}>
                            <h3 className={styles.certTitleName}>{cert.certName}</h3>
                            <h4 className={styles.certProv}>{cert.certProvider}</h4>
@@ -37,10 +39,10 @@ const Certs = ({ certData }: CertsArray) => {
                               alt={`${cert.certName} From ${cert.certProvider}`}
                            />
                         </div>
-                     </div>
+                     </GlowingCard>
                   );
                })}
-            </div>
+            </GlowingCards>
             <div className={styles.bottomCerBlur}></div>
          </div>
       </section>

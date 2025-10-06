@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 .certSection {
    margin-top: 120px;
    z-index: 1;
@@ -58,11 +60,6 @@
    background: radial-gradient(circle at 50% 250%, var(--primary-500), var(--surface-2)) padding-box,
       linear-gradient(var(--border-1), var(--border-2)) border-box;
 }
-.indivCertBox:hover {
-   transform: translateY(-3px);
-   border-color: #537895;
-   box-shadow: 0 10px 15px -3px rgba(83, 120, 149, 0.2), 0 4px 6px -4px rgba(83, 120, 149, 0.2);
-}
 .certDetails {
    display: flex;
    flex-direction: column;
@@ -100,7 +97,7 @@
    border-radius: 764px;
    background: rgba(25, 55, 109, 0.7);
    filter: blur(100px);
-   z-index: -1;
+   z-index: -20;
    overflow: hidden;
 }
 
@@ -108,12 +105,12 @@
 /*. RESPONSIVE
 ========= */
 @media (width >= 1580px) {
-  .certCon{
-    grid-template-columns: 1fr 1fr;
-  }
+   .certCon {
+      grid-template-columns: 1fr 1fr;
+   }
 }
 @media (width <= 838px) {
-  .indivCertBox{
-    padding: 10px 8px;
-  }
+   .indivCertBox {
+      padding: 10px 8px;
+   }
 }

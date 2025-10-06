@@ -1,0 +1,100 @@
+.container {
+   position: relative;
+   width: 100%;
+   margin-top: 10px;
+}
+.card {
+   position: relative;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column-reverse;
+   align-items: center;
+   gap: 1.2rem;
+   padding: 20px;
+   border-radius: 20px;
+   border: 1px solid #2a3a57;
+   transition: all 0.3s ease-in-out;
+   background: radial-gradient(circle at 50% 250%, var(--primary-500), var(--surface-2)) padding-box,
+      linear-gradient(var(--border-1), var(--border-2)) border-box;
+   z-index: -4;
+}
+/* Position the card's content on top of the spotlight */
+.card > * {
+   position: relative;
+   z-index: 2;
+}
+/* --- THE INTERNAL SPOTLIGHT EFFECT --- */
+.card::before {
+   content: "";
+   position: absolute;
+   z-index: 1; /* Sits below the content (z-index: 2) but above the background */
+   inset: 0;
+
+   /* This is the circular spotlight */
+   background: radial-gradient(
+      15rem circle at var(--x) var(--y),
+      /* Positioned by JS */ var(--glow-color),
+      /* Use the color from the data */ transparent 80%
+   );
+
+   /* Control its visibility */
+   opacity: 0;
+   transition: opacity 300ms ease;
+   will-change: opacity;
+}
+
+/* - BRING THE SPOTLIGHT IN ON HOVER --- */
+/* When hovering the main container, fade in the spotlight on all cards */
+.container:hover .card::before {
+   opacity: 0.2; /* Use a low opacity for a subtle glow */
+}
+.cardGrid {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 24px;
+}
+
+/* On larger screens, make it a 2-column grid */
+@media (min-width: 1024px) {
+   .cardGrid {
+      grid-template-columns: 1fr 1fr;
+   }
+}
+
+.overlay {
+   --glow-radius: 20rem;
+   --opacity: 0;
+   --x: 0px;
+   --y: 0px;
+
+   position: absolute;
+   inset: 0;
+   pointer-events: none;
+   user-select: none;
+   opacity: var(--opacity);
+
+   mask: radial-gradient(
+      var(--glow-radius) var(--glow-radius) at var(--x) var(--y),
+      #000 1%,
+      transparent 50%
+   );
+
+   transition: opacity 300ms ease;
+   will-change: opacity, mask;
+   z-index: 1;
+}
+
+/*
+ * STYLING FOR THE GLOW VERSION OF THE CARD
+ * This targets the cloned card inside the overlay.
+*/
+.glowCard {
+   background: transparent !important;
+   border-color: var(--glow-color) !important;
+   box-shadow: 0 0 0 2px inset var(--glow-color);
+}
+
+/* This hides the text/image content of the glow card, so only the border is visible */
+.glowCard > * {
+   opacity: 0;
+}

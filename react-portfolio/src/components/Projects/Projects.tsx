@@ -20,7 +20,7 @@ const Projects: React.FC<ProjectsPropsArray> = ({ projects }) => {
             <div className={styles.projectItemsCon}>
                {projects.map((project, index) => (
                   <div className={styles.projectItemBox} key={index}>
-                     <a href={project.projectLinkSite}>
+                     <a href={project.projectLinks[0].url}>
                         <img src={project.projectImg} alt="Project Image" className={styles.projectItemImg} />
                      </a>
 
@@ -46,13 +46,16 @@ const Projects: React.FC<ProjectsPropsArray> = ({ projects }) => {
                         ))}
                      </div>
                      <div className={styles.projectsLinksCon}>
-                        <a href={project.projectLinkSource}>
-                           {" "}
-                           <button className={styles.projectsLinksBtn}>Source</button>
-                        </a>
-                        <a href={project.projectLinkSite}>
-                           <button className={styles.projectsLinksBtn}>Link</button>
-                        </a>
+                        {/* if there are links from the pulled data for each link create this <a> element if not don't */}
+                        {project.projectLinks
+                           ? project.projectLinks.map((link) => {
+                                return (
+                                   <a href={link.url}>
+                                      <button className={styles.projectsLinksBtn}>{link.text}</button>
+                                   </a>
+                                );
+                             })
+                           : null}
                      </div>
                   </div>
                ))}

@@ -47,21 +47,39 @@
    justify-content: flex-start;
    gap: 30px;
 }
+
 .projectItemBox {
    padding: 24px;
    display: flex;
    flex-direction: column;
    align-items: flex-start;
    width: 100%;
-   background-color: var(--surface-2);
-   border-radius: 1rem;
+   height: 100%;
+   border: none;
 
-   border: transparent 1px solid;
+   position: relative;
+   border-radius: 1rem;
+   overflow: hidden;
+   z-index: 1; /* Ensures content stays on top */
+   background: var(--surface-2); /* A fallback solid background */
+}
+
+/* The pseudo-element that acts as the combined background and border */
+.projectItemBox::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
    background: radial-gradient(circle at 50% 250%, var(--primary-500), var(--surface-2)) padding-box,
       /*Add gradient in padding box and the other for border box(border) */
          linear-gradient(var(--border-1), var(--border-2)) border-box;
-   height: 100%;
+
+   /* place behind the parent's content */
+   z-index: -1;
 }
+
 .projectItemImg {
    border-radius: 20px;
    width: 100%;
@@ -114,10 +132,23 @@
    font-size: 1.3rem;
    border: none;
    cursor: pointer;
+   background-color: rgba(37, 37, 37, 0.671);
+   box-shadow: 0px 0px 8px 6px rgba(14, 14, 14, 0.212);
+   transition: all 0.2s ease-in-out;
+}
+.projectsLinksBtn:hover {
+   box-shadow: 0px 0px 12px 8px rgba(14, 14, 14, 0.315);
 }
 
 /* ***Responsive */
 @media (width <= 830px) {
+   .projectsLinksCon {
+      flex-direction: column;
+      gap: 15px;
+   }
+}
+@media (width <= 1038px) {
    .projectItemsCon {
+      justify-content: center;
    }
 }

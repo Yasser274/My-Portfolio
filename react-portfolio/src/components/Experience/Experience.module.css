@@ -203,7 +203,7 @@
 }
 
 .jobLogoCon img {
-   width: 90px;
+   width: clamp(120px, 18vw, 450px);
    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.5));
    -webkit-filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.5));
 }
@@ -226,6 +226,7 @@
 
 .jobPoints {
    margin-top: 10px; /* Add some space above the bullet points */
+   list-style: inside;
 }
 
 .jobPoints li {
@@ -271,7 +272,7 @@
    content: "";
    position: absolute;
    left: 0;
-   bottom: 25px;
+   bottom: 15px;
    width: 107%;
    height: 4px;
    background: rgb(9, 32, 63);
@@ -404,8 +405,15 @@
    }
 }
 
-@media (width >= 1120px) {
+@media (width <= 1750px) {
+   .jobCon {
+      flex-direction: column;
+      gap: 5px;
+   }
+}
+@media (width > 1750px) {
    .jobCon {
       justify-content: flex-start;
    }
 }
+

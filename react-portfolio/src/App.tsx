@@ -1,36 +1,39 @@
 import styles from "./App.module.css";
-import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import About from "./components/About/About";
-import Experience from "./components/Experience/Experience";
-import Projects from "./components/Projects/Projects";
 
-// Experience Data and other Data
-import { experienceData, jobsExperienceData } from "./data/experienceAndSkillsData";
-import { projectsData } from "./data/ProjectsData";
-import Contact from "./components/Contact/Contact";
-import Samples from "./components/Samples/Samples";
-import Cursor from "./components/Effects/Cursor";
-import Certs from "./components/CertsCon/Certs";
-// import LoadingScreen from "./components/Effects/LoadingScreen";
-import { CertData } from "./data/CertData";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import Layout from "./components/Layout";
+import HomePage from "./components/HomePage";
+import BlogsPage from "./Pages/BlogsPage";
+import BlogPostPage from "./Pages/BlogPostPage";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
-   
+   const location = useLocation(); // Get the current location
+
    return (
       <div className={styles.App}>
-         <Cursor></Cursor>
-         {/* <LoadingScreen></LoadingScreen> */}
-         <Navbar></Navbar>
-         <Hero></Hero>
-         <About></About>
-         <Experience experiences={experienceData} jobsExperiences={jobsExperienceData}></Experience>
-         <Projects projects={projectsData}></Projects>
-         <Certs certData={CertData}></Certs>
-         <Samples></Samples>
-         <Contact></Contact>
+            <AnimatePresence mode="wait">
+               {" "}
+               {/* Wrap the Routes with this Animate */}
+               <Routes location={location} key={location.pathname}>
+                  {/* 👇 Routes that USE the layout are nested inside */}
+                  <Route path="/" element={<Layout></Layout>}>
+                     {/* the default page will show the home page that has everything except my blogs EX: www.port.com */}
+                     <Route index element={<HomePage></HomePage>}></Route>
+                     {/* if URL has /blog show the BlogsPage EX: www.port.com/blog */}
+                     <Route path="/blogs" element={<BlogsPage></BlogsPage>}></Route>
+                     {/* this is for any blogs EX: /blogs/second-post */}
+                     <Route path="/blogs/:slug" element={<BlogPostPage></BlogPostPage>} />
+                  </Route>
+               </Routes>
+            </AnimatePresence>
       </div>
    );
 }
+const AppWrapper = () => (
+   <BrowserRouter>
+      <App />
+   </BrowserRouter>
+);
 
-export default App;
+export default AppWrapper;

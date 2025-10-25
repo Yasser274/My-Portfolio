@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./Navbar.module.css";
 import { getImageUrl } from "../../utils/imageUtils";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Navbar = () => {
    const [isSticky, setIsSticky] = useState<boolean>(false);
@@ -9,6 +10,12 @@ const Navbar = () => {
 
    const navbarRef = useRef<HTMLElement>(null); //? <is the type of it> and (null) because the component hasn’t rendered yet
    const initialNavbarBottom = useRef<number>(0); // Store initial bottom position
+
+   // Get the current location object
+   const location = useLocation();
+
+   // Check if we are on the homepage
+   const isHomePage = location.pathname === "/"; // if URL starts with / like google.com/ without google.com/search
 
    useEffect(() => {
       //? if navbarRef is rendered that's why .current
@@ -21,7 +28,7 @@ const Navbar = () => {
       const handleScroll = () => {
          const scrollPosition = window.scrollY;
          // Only set sticky when scrolled past the initial bottom position
-         setIsSticky(scrollPosition > initialNavbarBottom.current );// ? turn isSticky to true when this condition is true
+         setIsSticky(scrollPosition > initialNavbarBottom.current); // ? turn isSticky to true when this condition is true
       };
       // Add scroll event listener
       window.addEventListener("scroll", handleScroll);
@@ -34,9 +41,9 @@ const Navbar = () => {
 
    return (
       <nav ref={navbarRef} className={`${styles.navbar} ${isSticky ? styles.sticky : ""}`}>
-         <a href="/" className={styles.title}>
+         <NavLink to="/" className={styles.title}>
             Portfolio
-         </a>
+         </NavLink>
          <div className={styles.menu}>
             <img
                src={menuOpen ? getImageUrl("nav/CloseNavIcon.png") : getImageUrl("nav/NavIcon.png")} //? the ? means if the menuOpen is false get the close png if not get the NavIcon
@@ -49,20 +56,33 @@ const Navbar = () => {
                className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}
                onClick={() => setMenuOpen(false)} // ? when clicking any of the items inside it will close itself
             >
+               {/* if we're on the home page show these other links */}
+               {isHomePage ? (
+                  <>
+                     <li>
+                        <a href="#about">About</a>
+                     </li>
+                     <li>
+                        <a href="#experience">Experience</a>
+                     </li>
+                     <li>
+                        <a href="#projects">Projects</a>
+                     </li>
+                     <li>
+                        <a href="#certifications">Certifications</a>
+                     </li>
+                     <li>
+                        <a href="#contact">Contact</a>
+                     </li>
+                  </>
+               ) : (
+                  <li>
+                     <NavLink to="/">Home</NavLink>
+                  </li>
+               )}
+
                <li>
-                  <a href="#about">About</a>
-               </li>
-               <li>
-                  <a href="#experience">Experience</a>
-               </li>
-               <li>
-                  <a href="#projects">Projects</a>
-               </li>
-               <li>
-                  <a href="#certifications">Certifications</a>
-               </li>
-               <li>
-                  <a href="#contact">Contact</a>
+                  <NavLink to={"/blogs"}>Blog</NavLink>
                </li>
             </ul>
          </div>

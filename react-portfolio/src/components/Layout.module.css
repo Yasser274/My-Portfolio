@@ -1,0 +1,12 @@
+.layoutContainer {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   z-index: 1;
+   position: relative;
+}
+.mainContent {
+   height: 100%;
+   display: flex;
+   flex: 1; /* Take as much space as available that why the contact will go pushed to the bottom of the page */
+}

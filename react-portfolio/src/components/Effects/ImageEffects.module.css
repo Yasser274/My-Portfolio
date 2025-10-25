@@ -52,6 +52,110 @@ a,
    pointer-events: none; /* Prevent interaction when hidden */
 }
 
+/* ========
+/**. STARS
+========*/
+/* The main animation that makes the stars shoot across the screen */
+@keyframes animateStar {
+   from {
+      /* Start off-screen */
+      transform: translateY(0px);
+   }
+   to {
+      /* Move to a final position way off-screen.
+         '100vh' means the full viewport height. */
+      transform: translateY(-200vh);
+   }
+}
+
+/* The container that holds the stars. It sits fixed in the background. */
+.starsContainer {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1; /* place it behind all other content */
+
+   /* A dark night sky background */
+   background: #1a1a1a;
+   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+   overflow: hidden; /* Prevents stars from creating scrollbars */
+}
+
+/* Base styles for every single star */
+.star {
+   position: absolute;
+   width: 2px;
+   height: 2px;
+   border-radius: 50%;
+   background-color: #fff;
+
+   /* This creates the long, fading tail of the star */
+   box-shadow: 0 0 6px 0px rgba(255, 255, 255, 0.8), 0 0 10px 2px rgba(255, 255, 255, 0.5),
+      /* The tail itself, stretching 300px */ 0 0 20px 4px rgba(255, 255, 255, 0.2),
+      /* A very long, faint part of the tail */ 0 0 0 6px hsla(0, 0%, 100%, 0.1), 0 0 300px 0px #fff;
+
+   /* Link the animation to the star */
+   animation-name: animateStar;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+}
+
+/* 
+  Now to give each star its own unique starting position,
+  animation duration (speed), and animation delay. This
+  is what makes the effect look random and natural.
+*/
+
+.star1 {
+   top: 50%;
+   left: 30%;
+   animation-duration: 5s;
+   animation-delay: -2s; /* Negative delay makes it start immediately partway through */
+}
+
+.star2 {
+   top: 80%;
+   left: 85%;
+   animation-duration: 4s;
+   animation-delay: -1s;
+}
+
+.star3 {
+   top: 20%;
+   left: 10%;
+   animation-duration: 6s;
+   animation-delay: -5s;
+}
+
+.star4 {
+   top: 90%;
+   left: 50%;
+   animation-duration: 3s;
+   animation-delay: -3.5s;
+}
+
+.star5 {
+   top: 10%;
+   left: 70%;
+   animation-duration: 4.5s;
+   animation-delay: 0s;
+}
+
+.star6 {
+   top: 60%;
+   left: 5%;
+   animation-duration: 5.5s;
+   animation-delay: -4s;
+}
+
+.star7 {
+   top: 40%;
+   left: 95%;
+   animation-duration: 3.5s;
+   animation-delay: -0.5s;
+}
 
 /* ***Responsive */
 

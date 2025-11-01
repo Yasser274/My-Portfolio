@@ -6,7 +6,7 @@ const Hero = () => {
       <section className={styles.sectionM}>
          <div className={styles.cont}>
             <div className={styles.nameCon}>
-               <h1 className={`${styles.intro} ${styles.animatedTextBorder}`}>
+               <h1 className={`${styles.intro}`}>
                   Hi, I'm<span className={`${styles.myName}`}>Yasser</span>
                </h1>
             </div>

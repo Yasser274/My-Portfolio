@@ -1,5 +1,4 @@
 import styles from "../Experience/Experience.module.css";
-import { getImageUrl } from "../../utils/imageUtils";
 import Github_Icon from "../../assets/contact/github-svg";
 import Linkedin_Icon from "../../assets/contact/linkedin-svg";
 

@@ -1,24 +1,32 @@
 :root {
    /* Colors */
    --color-text: #fff;
+   --color-dark-text: #000000;
    --color-primary: #576cbc;
    --color-secondary: #19376d;
    --color-dark: #0b2447;
    --color-bg: #04152d;
+   --darken-hover-btn: #e6e6e6;
+
+   /* Shadow for everything */
+   --shadow-box-dual: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 
    /* Fonts */
    --font-primary: "Eczar";
 
    /* Shadow */
    --shadow-color: 0deg 0% 0%;
-   --shadow-elevation-low: 0.3px 0.2px 0.5px hsl(var(--shadow-color) / 0.06),
+   --shadow-elevation-low:
+      0.3px 0.2px 0.5px hsl(var(--shadow-color) / 0.06),
       0.6px 0.4px 0.9px -0.7px hsl(var(--shadow-color) / 0.09),
       1.3px 0.8px 2px -1.4px hsl(var(--shadow-color) / 0.12);
-   --shadow-elevation-medium: 0.3px 0.2px 0.5px hsl(var(--shadow-color) / 0.06),
+   --shadow-elevation-medium:
+      0.3px 0.2px 0.5px hsl(var(--shadow-color) / 0.06),
       1.2px 0.8px 1.9px -0.5px hsl(var(--shadow-color) / 0.09),
       2.8px 1.8px 4.3px -0.9px hsl(var(--shadow-color) / 0.11),
       6.3px 4.1px 9.7px -1.4px hsl(var(--shadow-color) / 0.14);
-   --shadow-elevation-high: 0.3px 0.2px 0.5px hsl(var(--shadow-color) / 0.06),
+   --shadow-elevation-high:
+      0.3px 0.2px 0.5px hsl(var(--shadow-color) / 0.06),
       2.5px 1.6px 3.8px -0.2px hsl(var(--shadow-color) / 0.07),
       4.5px 3px 7px -0.4px hsl(var(--shadow-color) / 0.08),
       7px 4.6px 10.8px -0.6px hsl(var(--shadow-color) / 0.09),
@@ -34,7 +42,7 @@
 
    --border-1: var(--primary-500); /* top */
    --border-2: var(--primary-600); /* bottom */
-   
+
    --primary-900: hsl(256, 43%, 7%);
    --primary-800: hsl(240, 24%, 13%);
    --primary-700: hsl(243, 26%, 15%);

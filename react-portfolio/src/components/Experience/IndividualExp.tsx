@@ -13,7 +13,7 @@ interface IndividualExpProps {
    smallTitle?: string;
 }
 
-const IndividualExp: React.FC<IndividualExpProps> = ({ image, title, cert, moreInfo, video,smallTitle }) => {
+const IndividualExp = ({ image, title, cert, moreInfo, video, smallTitle }: IndividualExpProps) => {
    const moreInfoButtonRef = useRef<HTMLDivElement>(null);
    const videoButtonRef = useRef<HTMLDivElement>(null);
 
@@ -131,7 +131,7 @@ const IndividualExp: React.FC<IndividualExpProps> = ({ image, title, cert, moreI
                        <p className={styles.modalMoreInfoText}>{moreInfo}</p>
                     </div>
                  </div>,
-                 modalRoot // Tell the portal to render inside the #modal-root div
+                 modalRoot, // Tell the portal to render inside the #modal-root div
               )
             : null}
 
@@ -166,7 +166,7 @@ const IndividualExp: React.FC<IndividualExpProps> = ({ image, title, cert, moreI
                     </div>
                  </div>,
 
-                 modalRoot
+                 modalRoot,
               )
             : null}
       </>

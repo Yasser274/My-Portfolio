@@ -1,25 +1,29 @@
 import styles from "./Projects.module.css";
 // import { getImageUrl } from "../../utils/imageUtils";
-import { useRef } from "react";
-import { SectionAppearFadeEffect } from "../Effects/ImageEffectsAndOtherEffects";
 import { ProjectsDataTypes } from "../../data/ProjectsData";
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants } from "../../utils/animationVariants";
+import layoutStyle from "../Layout.module.css";
 
 interface ProjectsPropsArray {
    projects: ProjectsDataTypes[];
 }
 
-const Projects: React.FC<ProjectsPropsArray> = ({ projects }) => {
-   const sectionRef = useRef<HTMLDivElement>(null);
-
-   SectionAppearFadeEffect(sectionRef, styles.visible);
-
+const Projects = ({ projects }: ProjectsPropsArray) => {
    return (
       <section>
-         <div className={styles.projectsCon} id="projects" ref={sectionRef}>
+         <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className={layoutStyle.sectionPart}
+            id="projects"
+         >
             <h2 className={styles.projectTitle}>Projects</h2>
             <div className={styles.projectItemsCon}>
                {projects.map((project, index) => (
-                  <div className={styles.projectItemBox} key={index}>
+                  <motion.div className={styles.projectItemBox} key={index} variants={itemVariants}>
                      <a href={project.projectLinks[0].url}>
                         <img src={project.projectImg} alt="Project Image" className={styles.projectItemImg} />
                      </a>
@@ -57,10 +61,10 @@ const Projects: React.FC<ProjectsPropsArray> = ({ projects }) => {
                              })
                            : null}
                      </div>
-                  </div>
+                  </motion.div>
                ))}
             </div>
-         </div>
+         </motion.div>
       </section>
    );
 };

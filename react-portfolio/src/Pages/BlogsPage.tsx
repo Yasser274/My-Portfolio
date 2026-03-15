@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import styles from "./Blog.module.css";
 import { Link } from "react-router-dom";
 import AnimatedPage from "../components/Effects/AnimatedPage";
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants } from "../utils/animationVariants";
 
 export interface BlogsListType {
    title: string;
@@ -46,7 +48,7 @@ const BlogsPage = () => {
 
    return (
       // when this appears(mount) animate it
-      <div className={styles.blogSecCon}>
+      <motion.div className={styles.blogSecCon} variants={containerVariants}>
          <AnimatedPage>
             <section className={styles.blogSection}>
                <div className={styles.blogBlur}></div>
@@ -54,33 +56,35 @@ const BlogsPage = () => {
                <h1 className={styles.pageTitle}>My Blogs</h1>
                <div className={styles.blogsGrid}>
                   {blogsList.map((blog) => (
-                     <Link to={`/blogs/${blog.slug}`} key={blog.slug} className={styles.blogLink}>
-                        <article className={styles.blogCard}>
-                           {blog.coverImage && (
-                              <img
-                                 src={blog.coverImage}
-                                 alt={`Cover for ${blog.title}`}
-                                 className={styles.cardImage}
-                              />
-                           )}
-                           <div className={styles.cardContent}>
-                              <h2 className={styles.cardTitle}>{blog.title}</h2>
-                              <p className={styles.cardExcerpt}>{blog.excerpt}</p>
-                              <small className={styles.cardDate}>
-                                 {new Date(blog.date).toLocaleDateString("en-US", {
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "numeric",
-                                 })}
-                              </small>
-                           </div>
-                        </article>
-                     </Link>
+                     <motion.div variants={itemVariants}>
+                        <Link to={`/blogs/${blog.slug}`} key={blog.slug} className={styles.blogLink}>
+                           <motion.article className={styles.blogCard} variants={itemVariants}>
+                              {blog.coverImage && (
+                                 <img
+                                    src={blog.coverImage}
+                                    alt={`Cover for ${blog.title}`}
+                                    className={styles.cardImage}
+                                 />
+                              )}
+                              <div className={styles.cardContent}>
+                                 <h2 className={styles.cardTitle}>{blog.title}</h2>
+                                 <p className={styles.cardExcerpt}>{blog.excerpt}</p>
+                                 <small className={styles.cardDate}>
+                                    {new Date(blog.date).toLocaleDateString("en-US", {
+                                       year: "numeric",
+                                       month: "long",
+                                       day: "numeric",
+                                    })}
+                                 </small>
+                              </div>
+                           </motion.article>
+                        </Link>
+                     </motion.div>
                   ))}
                </div>
             </section>
          </AnimatedPage>
-      </div>
+      </motion.div>
    );
 };
 

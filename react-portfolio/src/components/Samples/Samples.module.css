@@ -1,29 +1,13 @@
 @import "../../Styles/vars.css";
 
 .samplesSection {
-   margin-top: 120px;
-   z-index: 1;
-   margin-left: 10%;
-   margin-right: 10%;
-   opacity: 0; /* doesn't appear only until visible class gets added */
    display: flex;
    flex-direction: column;
    align-items: center;
    gap: 40px;
+   margin-bottom: 80px;
 }
-.samplesSection.visible {
-   animation: fadeInUp 1.2s ease-out forwards;
-}
-@keyframes fadeInUp {
-   0% {
-      opacity: 0;
-      transform: translateY(50px);
-   }
-   100% {
-      opacity: 1;
-      transform: translateY(0);
-   }
-}
+
 .samplesTitle {
    color: var(--color-text);
    font-size: 2.2rem;
@@ -43,135 +27,134 @@
    background: rgb(9, 32, 63);
    background: linear-gradient(63deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
 }
-.imgSliderCon {
+.swiperContainer {
    width: 100%; /* Take full width of sliderArea */
    max-width: 1000px;
    margin: 0 auto;
-   position: relative;
-   overflow: hidden; /* <<< KEY: Hide slides outside the container */
-   border-radius: 10px;
-   aspect-ratio: 16 /9;
+   padding-bottom: 50px;
+}
+.swiperContainer .swiper {
+   width: 100%;
+   height: 100%;
+}
+/* - Main Slider Image Wrapper (The Frame) - */
+.imgWrapper {
+   width: 100%;
+   height: 450px; /* Fixed height for the slider */
+   display: flex;
+   align-items: center; /* Vertically centers the image */
+   justify-content: center; /* Horizontally centers the image */
+   border-radius: 16px;
+   cursor: none;
+   overflow: hidden;
+   /* Padding adds a nice gallery "border" around the image */
+   padding: 10px;
+   box-sizing: border-box;
 }
 
-.sliderArea {
-   position: relative; /* Needed for positioning arrows */
+/* - The Actual Image - */
+.mainImage {
+   max-width: 100%;
+   max-height: 100%;
+   object-fit: contain;
+   border-radius: 8px;
+}
+.thumbSwiper {
    width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
-   gap: 20px;
+   max-width: 500px; /* Limits the thumbnail bar width so it looks centered */
+   margin: 0 auto; /* Centers the entire swiper container */
+   padding-top: 15px;
+   padding-bottom: 10px;
 }
-/* The element that moves horizontally */
-.imgSliderTrack {
-   display: flex; /* Align slides horizontally */
+
+.thumbSlide {
+   height: 60px !important;
+   width: 80px;
+   opacity: 0.3;
+   transition: all 0.3s ease;
+   border-radius: 8px;
+   overflow: hidden;
+   border: 2px solid transparent;
+}
+
+/* Target the active thumbnail */
+.thumbSwiper :global(.swiper-slide-thumb-active) {
+   opacity: 1;
+   border: 2px solid #3b82f6;
+}
+/* Target the image INSIDE the active thumb slide */
+.thumbSwiper :global(.swiper-slide-thumb-active) .thumbImg {
+   transform: scale(1.2); /* Zoom the image in */
+   transition: transform 0.3s ease;
+}
+
+.thumbImg {
+   width: 100%;
    height: 100%;
-   transition: transform 0.5s ease-in-out; /* <<< KEY: Smooth sliding animation */
+   object-fit: cover;
 }
-.imgSliderLeftArrow,
-.imgSliderRightArrow {
+
+/* Swiper Arrows next and prev */
+/* Base button styling */
+.navBtn {
    position: absolute;
    top: 50%;
-   transform: translateY(-50%); /* Vertical centering */
-   z-index: 4;
-   cursor: none;
-   /* Add some background/padding for easier clicking */
-   background-color: rgba(255, 255, 255, 0.123); /* Semi-transparent background */
+   transform: translateY(-50%);
+   z-index: 100;
+   width: 50px;
+   height: 50px;
    border-radius: 50%;
-   width: 56px; /* Match SVG size */
-   height: 56px; /* Match SVG size */
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   transition: background-color 0.2s ease;
-}
-.imgSliderLeftArrow {
-   left: -60px; /* Position outside the slider area */
-}
 
-.imgSliderRightArrow {
-   right: -60px; /* Position outside the slider area */
-}
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   background: rgba(255, 255, 255, 0.1);
+   padding: 0;
+   outline: none;
 
-.imgSliderRightArrow svg,
-.imgSliderLeftArrow svg {
-   width: 48px; /* Control icon size within the button */
-   height: 48px; /* Control icon size within the button */
-   display: block; /* Prevent extra space below inline SVGs */
-}
-/* Individual slide styles */
-.imgSlide {
-   min-width: 100%; /*Each slide takes full container width  */
-   height: 100%;
-   border-radius: 10px;
-   background-position: center;
-   background-size: cover;
-   cursor: none;
-   flex-shrink: 0;
-}
-/* dots under img slider to indicate how many imgs and stuff */
-.imgSliderDotsCon {
-   width: 100%;
+   backdrop-filter: blur(10px);
+   color: white;
    display: flex;
-   justify-content: center;
-   align-items: center;
-}
-.imgSliderDotsCon ul {
-   display: flex;
-   width: 100%;
    align-items: center;
    justify-content: center;
-}
-.imgSliderDot {
-   list-style: none;
-}
-.imgSliderDot svg {
-   box-sizing: border-box;
-   display: block; /* Changed from flex; centering is in viewBox */
-   width: 48px; /* Size of the SVG = scaled path size (6 units * 2px/unit) */
-   transition: fill 0.3s ease; /* Optional: for hover/active transitions */
    cursor: pointer;
+   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-.imgSliderDot svg g path {
-   transition: fill 0.3s ease;
-}
-.imgSliderDot svg.activeDot {
-   stroke: white;
-}
-.imgSliderDot svg:hover path {
-   fill: #a0b8c9; /* Hover color */
-}
-/* Fullscreen Img view */
-.fullScreenCon {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100vw;
-   height: 100vh;
-   background-color: rgba(0, 0, 0, 0.85);
-   z-index: 1000; /* High z-index */
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   padding: 20px;
-   box-sizing: border-box;
-   overflow: hidden;
-}
-.fullScreenCon img {
-   border-radius: 14px;
-   width: auto;
-   position: absolute;
-   max-width: 90%;
-   max-height: 90%;
-}
-.fullScreenCloseBtn {
-   position: absolute;
-   top: 15px;
-   right: 15px;
-   z-index: 1001;
-   cursor: none;
-   width: 96px;
+/* Ensure SVG doesn't block clicks */
+.navBtn svg {
    pointer-events: none;
+}
+
+.navBtn:hover {
+   background: rgba(255, 255, 255, 0.2);
+   scale: 1.1;
+   border-color: #3b82f6;
+   color: #3b82f6;
+}
+
+.navBtn:active {
+   scale: 0.95;
+}
+
+/* Position them slightly outside or on the edge */
+.navPrev {
+   left: 10px;
+}
+
+.navNext {
+   right: 10px;
+}
+
+/* Disable the button when there are no more slides (if loop is false) */
+.navBtn:global(.swiper-button-disabled) {
+   opacity: 0;
+   cursor: default;
+   pointer-events: none;
+}
+
+/* Hide the default Swiper Arrow icons (::after) */
+.mainSwiper :global(.swiper-button-next::after),
+.mainSwiper :global(.swiper-button-prev::after) {
+   display: none;
 }
 
 /* ***Responsive */

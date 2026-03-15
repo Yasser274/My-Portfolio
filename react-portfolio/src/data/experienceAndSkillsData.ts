@@ -1,6 +1,6 @@
 export const experienceData = [
    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Microsoft_365_%282022%29.svg/512px-Microsoft_365_%282022%29.svg.png",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Microsoft_365_%282022%29.svg/250px-Microsoft_365_%282022%29.svg.png",
       title: "Microsoft Office",
    },
    {
@@ -17,11 +17,11 @@ export const experienceData = [
       title: "HTML5",
    },
    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Official_CSS_Logo.svg/250px-Official_CSS_Logo.svg.png",
       title: "CSS",
    },
    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/250px-Unofficial_JavaScript_logo_2.svg.png",
       title: "JavaScript",
    },
    {
@@ -38,15 +38,15 @@ export const experienceData = [
       title: "Power Bi",
       cert: "https://drive.google.com/file/d/1z2SqooEXTjGRw4N-nHQgUmSDv6riPBqQ/view?usp=drive_link",
       moreInfo: `I couldn't publish my Power BI dashboard because it requires a subscription. Instead, I made a video showcasing it.`,
-      video:'https://drive.google.com/file/d/18EyAr6PZYIJxCqOqI_P2TxwqKhwwobJ_/preview',
-      smallTitle:'Power BI Sample of My Report'
+      video: "https://drive.google.com/file/d/18EyAr6PZYIJxCqOqI_P2TxwqKhwwobJ_/preview",
+      smallTitle: "Power BI Sample of My Report",
    },
    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/512px-WordPress_blue_logo.svg.png",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Wordpress-Logo.svg/250px-Wordpress-Logo.svg.png",
       title: "WordPress",
    },
    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/2101px-Adobe_Photoshop_CC_icon.svg.png",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/250px-Adobe_Photoshop_CC_icon.svg.png",
       title: "Photoshop",
    },
    {
@@ -54,7 +54,7 @@ export const experienceData = [
       title: "Premiere Pro",
    },
    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Adobe_Illustrator_CC_icon.svg/1051px-Adobe_Illustrator_CC_icon.svg.png",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Adobe_Illustrator_CC_icon.svg/250px-Adobe_Illustrator_CC_icon.svg.png",
       title: "Illustrator",
    },
 ];
@@ -64,7 +64,21 @@ export const jobsExperienceData = [
       companyName: "Almosafer",
       companyLogo: "https://seera.sa/wp-content/uploads/2019/04/Almosafer-01.png",
       date: `April 2025 - July 2025`,
-      points: ["Conducted competitive analysis and developed customer journey maps.", "Managed advertising budgets, scheduled ad postings.","Gained expertise in market trend analysis, and targeted demographic strategies, leveraging Almosafer’s understanding of local audiences for competitive advantage.","Track and analyze marketing campaigns."],
+      points: [
+         "Conducted competitive analysis and developed customer journey maps.",
+         "Managed advertising budgets, scheduled ad postings.",
+         "Gained expertise in market trend analysis, and targeted demographic strategies, leveraging Almosafer’s understanding of local audiences for competitive advantage.",
+         "Track and analyze marketing campaigns.",
+      ],
+   },
+   {
+      jobTitle: "Tamheer Trainee",
+      companyName: "MIS",
+      companyLogo: "https://companieslogo.com/img/orig/7200.SR_BIG-4b38926c.png?t=1751597216",
+      date: `Jan 2026 - `,
+      points: [
+         "...."
+      ],
    },
    // {
    //    jobTitle: "Intern",

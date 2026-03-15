@@ -1,67 +1,67 @@
 import styles from "./About.module.css";
 import { getImageUrl } from "../../utils/imageUtils";
-import {ImageEffects} from "../Effects/ImageEffectsAndOtherEffects";
-import { useEffect,useRef } from "react";
-
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants } from "../../utils/animationVariants";
+import layoutStyle from "../Layout.module.css";
 
 const About = () => {
-   const sectionRef = useRef<HTMLElement>(null);
-
-   // effect when components becomes visible after scroll
-   useEffect(() => {
-      const observer = new IntersectionObserver(
-         (entries) => {
-            entries.forEach((entry) => {
-               if (entry.isIntersecting) {
-                  entry.target.classList.add(styles.visible);
-                  observer.unobserve(entry.target); // Stop observing once visible
-               }
-            });
-         },
-         { threshold: 0.1 } // Trigger when 10% of section is visible
-      );
-
-      if (sectionRef.current) {
-         observer.observe(sectionRef.current);
-      }
-
-      // Cleanup observer on unmount
-      return () => {
-         if (sectionRef.current) {
-            observer.unobserve(sectionRef.current);
-         }
-      };
-   }, []);
    return (
-      <section className={styles.aboutSect} id="about" ref={sectionRef}>
-         <h2 className={styles.bigTitle}>About</h2>
-         <div className={styles.twoBox}>
-            <ImageEffects src={getImageUrl("about/About-Img.png")} alt="About Me"/>
-            <ul className={styles.aboutsCon}>
-               <li>
-                  <img src={getImageUrl("about/marketing.png")} alt="" className={styles.smallImgs} />
-                  <div className={styles.smallCons}>
-                     <h3 className={styles.smallTitle}>Marketing</h3>
-                     <p>Crafting compelling campaigns and understanding consumer behavior</p>
-                  </div>
-               </li>
-               <li>
-                  <img src={getImageUrl("about/analytics.png")} alt="" className={styles.smallImgs} />
-                  <div className={styles.smallCons}>
-                     <h3 className={styles.smallTitle}>Analytics</h3>
-                     <p>Using data insights to optimize marketing efforts and measure success.</p>
-                  </div>
-               </li>
-               <li>
-                  <img src={getImageUrl("about/technology.png")} alt="" className={styles.smallImgs} />
-                  <div className={styles.smallCons}>
-                     <h3 className={styles.smallTitle}>Technology</h3>
-                     <p>Leveraging the latest tools and platforms to stay ahead in digital marketing</p>
-                  </div>
-               </li>
-            </ul>
-         </div>
-      </section>
+      <motion.section
+         variants={containerVariants}
+         initial="hidden"
+         whileInView="visible"
+         viewport={{ once: true, amount: 0.15 }}
+         className={`${styles.aboutSect} ${layoutStyle.sectionPart}`}
+         id="about"
+      >
+         <motion.h2 variants={itemVariants} className={styles.bigTitle}>
+            About
+         </motion.h2>
+
+         {/* ✅ Changed from <div> to <motion.div> with containerVariants */}
+         <motion.div variants={containerVariants} className={styles.twoBox}>
+            <motion.div
+               variants={itemVariants}
+               className={styles.aboutImgContainer}
+               style={{ flex: 1, display: "flex", justifyContent: "center" }}
+            >
+               <img src={getImageUrl("about/About-Img.png")} alt="About Me" className={styles.aboutImg} />
+            </motion.div>
+
+            {/* ✅ Changed from <ul> to <motion.ul> with containerVariants */}
+            <motion.ul variants={containerVariants} className={styles.aboutsCon}>
+               {[
+                  {
+                     img: "marketing.png",
+                     title: "Marketing",
+                     p: "Crafting compelling campaigns and understanding consumer behavior",
+                  },
+                  {
+                     img: "analytics.png",
+                     title: "Analytics",
+                     p: "Using data insights to optimize marketing efforts and measure success",
+                  },
+                  {
+                     img: "technology.png",
+                     title: "Technology",
+                     p: "Using data insights to optimize marketing efforts and measure success",
+                  },
+               ].map((item, index) => (
+                  <motion.li
+                     key={index}
+                     variants={itemVariants}
+                     whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                  >
+                     <img src={getImageUrl(`about/${item.img}`)} alt="" className={styles.smallImgs} />
+                     <div className={styles.smallCons}>
+                        <h3 className={styles.smallTitle}>{item.title}</h3>
+                        <p>{item.p}</p>
+                     </div>
+                  </motion.li>
+               ))}
+            </motion.ul>
+         </motion.div>
+      </motion.section>
    );
 };
 

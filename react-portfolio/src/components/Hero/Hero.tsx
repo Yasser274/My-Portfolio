@@ -1,29 +1,53 @@
 import { getImageUrl } from "../../utils/imageUtils";
 import styles from "./Hero.module.css";
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants } from "../../utils/animationVariants";
+import layoutStyle from "../Layout.module.css";
+
 
 const Hero = () => {
    return (
-      <section className={styles.sectionM}>
-         <div className={styles.cont}>
-            <div className={styles.nameCon}>
-               <h1 className={`${styles.intro}`}>
-                  Hi, I'm<span className={`${styles.myName}`}>Yasser</span>
+      // ✅ Make the outer section the animation root
+      <motion.section
+         className={`${styles.sectionM} ${layoutStyle.sectionPart}`}
+         variants={containerVariants}
+         initial="hidden"
+         whileInView="visible"
+         viewport={{ once: true, amount: 0.3 }}
+      >
+         <motion.div variants={containerVariants} className={styles.cont}>
+            <motion.div className={styles.nameCon} variants={itemVariants}>
+               <h1 className={styles.intro}>
+                  Hi, I'm<span className={styles.myName}>Yasser</span>
                </h1>
-            </div>
-            <p className={styles.desc}>
+            </motion.div>
+
+            <motion.p variants={itemVariants} className={styles.desc}>
                I blend marketing expertise, data-driven analytics, and web development skills to create
                impactful digital experiences. By leveraging technology, I craft user-friendly websites while
                using analytics to optimize strategies for better engagement and growth.
-            </p>
-            <a href="mailto:yasserals10@gmail.com" className={styles.contactBtn}>
+            </motion.p>
+
+            <motion.a
+               variants={itemVariants}
+               href="mailto:yasserals10@gmail.com"
+               className={styles.contactBtn}
+               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            >
                Contact Me
-            </a>
-         </div>
-         <img src={getImageUrl("hero/Avatar.png")} alt="Profile Picture" className={styles.avatarPic} />
+            </motion.a>
+         </motion.div>
+
+         <motion.img
+            src={getImageUrl("hero/Avatar.png")}
+            alt="Profile Picture"
+            className={styles.avatarPic}
+            variants={itemVariants}
+         />
 
          <div className={styles.topBlur}></div>
          <div className={styles.bottomBlur}></div>
-      </section>
+      </motion.section>
    );
 };
 

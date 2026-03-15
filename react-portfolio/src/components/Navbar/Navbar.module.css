@@ -4,43 +4,61 @@
    align-items: center;
    position: relative;
    justify-content: space-between;
-   padding: 20px;
-   margin: 0 5%;
-   backdrop-filter: blur(10px);
-   -webkit-backdrop-filter: blur(10px);
-   box-sizing: border-box;
-   border-radius: 24px;
-   z-index: 2;
-   margin-top: 12px;
-   background-color: rgba(43, 43, 43, 0.555);
-   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.459);
-   z-index: 20;
-}
+   padding: 0 !important; /* Remove padding so sub-containers hit the edges */
 
+   width: 90%;
+   max-width: 1600px;
+   margin-left: auto;
+   margin-right: auto;
+
+   box-sizing: border-box;
+   margin-top: 12px;
+   z-index: 99999;
+}
 
 .sticky {
    position: fixed;
    top: 5px;
+   /* 3. Ensure width and max-width match .sectionPart exactly */
    width: 90%;
-   left: 5%; /* Ensures alignment */
-   margin: 0; /* Overrides margin */
-   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.459);
-   /* Animation when becoming sticky */
+   max-width: 1600px;
+
+   /* 4. Perfect Centering Logic for Fixed elements */
+   left: 50%;
+   transform: translateX(-50%);
+
+   margin: 0;
+
+   /* Update animation to include the translateX centering */
    animation: slowlyAppearNavWhenScroll 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-
-   /* --- Background for Dithering --- */
-   background-color: rgba(43, 43, 43, 0.555);
+   z-index: 99999;
 }
-
+.leftPartNav,
+.rightPartNav {
+   position: relative;
+   z-index: 100; /* Forces them to pop to the front of the navbar */
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+   box-sizing: border-box;
+   border-radius: 24px;
+   background-color: rgba(43, 43, 43, 0.555);
+   z-index: 999;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.459);
+   height: 100%;
+}
+.rightPartNav{
+   padding: 0px 20px;
+}
 
 @keyframes slowlyAppearNavWhenScroll {
    0% {
       opacity: 0;
-      transform: translateY(-20px); /* Slide down from above */
+      /* Keep the -50% for centering while moving Y */
+      transform: translate(-50%, -20px);
    }
    100% {
       opacity: 1;
-      transform: translateY(0); /* Final position */
+      transform: translate(-50%, 0);
    }
 }
 
@@ -55,66 +73,160 @@
    }
 }
 
-.title {
-   font-size: clamp(1.6rem, 5.2vw, 2.4rem);
-   font-weight: 600;
-   text-decoration: none;
-   color: var(--color-text);
+.homeLink {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 20px;
+   
+   border-radius: 24px; 
+   width: 100%;
+   height: 100%;
+   box-sizing: border-box;
+   
+   transition: background-color 0.3s ease;
+}
+
+.homeLink:hover {
+   background-color: rgba(255, 255, 255, 0.05); /* Gives visual feedback for the big area */
+}
+
+.homeIcon {
+   transition: transform 0.3s ease;
+   flex-shrink: 0;
+   pointer-events: none;
+}
+
+.homeLink:hover .homeIcon {
+   transform: scale(1.1) translateY(-2px);
+   color: #3b82f6; /* Your primary brand color */
 }
 
 .menu {
    display: flex;
 }
-.menuBtn {
-   width: 80px;
+/* Container to hold both icons in the same spot */
+.menuBtnContainer {
+   position: relative;
+   width: 40px;
+   height: 40px;
    display: none;
+   align-items: center;
+   justify-content: center;
+   z-index: 1000;
+}
+.menuBtn {
+   position: absolute;
+   width: 100%;
+   height: auto;
+   transition:
+      opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+   pointer-events: none;
+}
+/* "Hamburger" (NavIcon) */
+.iconVisible {
+   opacity: 1;
+   transform: scale(1) rotate(0deg);
+}
+
+/* (CloseNavIcon) and hidden states */
+.iconHidden {
+   opacity: 0;
+   transform: scale(0.5) rotate(-90deg);
+}
+
+/* Hover effect on the container to make it feel alive */
+.menuBtnContainer:hover .menuBtn {
+   filter: brightness(1.2);
 }
 .menuItems {
    display: flex;
-   gap: 47px;
+   gap: 15px;
    text-decoration: none;
    list-style: none;
 }
 .menuItems a {
    text-decoration: none;
-   font-size: 1.65rem;
+   font-size: clamp(1rem, 5vw, 1.4rem);
    color: var(--color-text);
    position: relative;
-   transition: color 0.5s ease;
+   padding: 20px 12px;
+   transition:
+      color 0.4s ease,
+      text-shadow 0.4s ease;
+   display: inline-block;
 }
+
+/* Bloom */
+.menuItems a::before {
+   content: "";
+   position: absolute;
+   bottom: -2px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 100%;
+   height: 100%;
+   background: radial-gradient(
+      circle at bottom,
+      rgba(59, 130, 246, 0.25) 0%,
+      rgba(59, 130, 246, 0.05) 45%,
+      transparent 70%
+   );
+   opacity: 0;
+   transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+   pointer-events: none;
+   z-index: -1;
+}
+
+/* Underline glow */
 .menuItems a::after {
    content: "";
    position: absolute;
    bottom: 0;
-   left: 0;
+   left: 50%;
+   transform: translateX(-50%) scaleX(0);
+   transform-origin: center;
    width: 100%;
-   height: 2px;
-   background: linear-gradient(90deg, transparent, #ffffff, transparent);
-   background-size: 200% 100%;
+   height: 1px;
+   background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #3b82f6 20%,
+      #93c5fd 50%,
+      #3b82f6 80%,
+      transparent 100%
+   );
+   box-shadow: 0px 0px 8px rgba(59, 130, 246, 0.6);
    opacity: 0;
-   transition: opacity 0.5s;
+   transition:
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+   will-change: transform, opacity;
 }
+
 .menuItems a:hover {
-   color: var(--color-text);
+   color: #ffffff;
+   text-shadow: 0 0 10px rgba(147, 197, 253, 0.3);
+}
+
+.menuItems a:hover::before {
+   opacity: 1;
 }
 
 .menuItems a:hover::after {
    opacity: 1;
-   animation: shimmer111 1.5s linear infinite;
+   transform: translateX(-50%) scaleX(1);
+   box-shadow: 0px 0px 12px rgba(59, 130, 246, 0.8);
 }
-
-@keyframes shimmer111 {
-   0% {
-      background-position: 200% 0;
-   }
-   100% {
-      background-position: -200% 0;
-   }
+.menuBlobWrapper {
+   display: none;
 }
 /* ***Responsive */
 
 @media (width >= 900px) {
-   .navbar{
+   .navbar {
       padding: 20px 60px;
    }
 }
@@ -128,38 +240,114 @@
    .menu {
       position: relative;
       right: 0;
-      margin-right: 10%;
       flex-direction: column;
       align-items: flex-end;
       gap: 11px;
       z-index: 3;
    }
-   .menuBtn {
-      display: block;
-      cursor: pointer;
-      height: auto;
-      width: 40px;
-      align-items: center;
-      justify-content: center;
+   .menuBtnContainer {
+      display: flex;
+      padding: 40px 20px;
    }
    .menuItems {
       position: absolute;
-      top: 50px;
+      top: 70px;
+      right: 0;
       display: none;
       flex-direction: column;
       align-items: center;
-      gap: 13px;
-      border-radius: 10px;
-      background: rgb(25, 55, 109);
-      background: linear-gradient(0deg, rgba(25, 55, 109, 0.2) 0%, rgba(25, 55, 109, 1) 100%);
-      padding: 24px 33px;
-      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.534);
-      backdrop-filter: blur(100px);
+      gap: 15px;
+      padding: 30px 40px;
+
+      /* Glassmorphism Base */
+      background: rgba(15, 15, 15, 0.85);
+      backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+      /* This is key for the background effects */
+      overflow: hidden;
+      z-index: 105;
+   }
+   /* - BLOB GLOW WRAPPER - */
+   .menuBlobWrapper {
+      position: absolute;
+      bottom: -150px;
+      right: -90px;
+
+      /* Made larger to accommodate the huge blur radius */
+      width: 350px;
+      height: 350px;
+      z-index: 0;
+      display: block;
+      pointer-events: none;
+   }
+
+   .menuBlobSvg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-15deg);
+
+      filter: blur(45px);
+      -webkit-filter: blur(45px);
+
+      /* Force the browser to never clip the blur */
+      overflow: visible;
+      will-change: transform;
+   }
+
+   /* - NOISE OVERLAY - */
+   .noiseOverlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.06;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+
+      /* Adjusted the mask so the noise spreads slightly further to match the new blur size */
+      -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 65%);
+      mask-image: radial-gradient(circle at center, black 40%, transparent 65%);
    }
    .menuOpen {
       display: flex;
-      z-index: 4;
+      animation: menuAppear 0.3s ease-out forwards;
+   }
+
+   @keyframes menuAppear {
+      from {
+         opacity: 0;
+         transform: translateY(10px) scale(0.95);
+      }
+      to {
+         opacity: 1;
+         transform: translateY(0) scale(1);
+      }
+   }
+   /* - THE DARK BACKDROP OVERLAY - */
+   .pageOverlay {
+      position: fixed;
+      top: -100vh;
+      left: -100vw;
+      width: 300vw;
+      height: 300vh;
+
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: -1;
+
+      animation: fadeInOverlay 0.3s ease-out forwards;
+   }
+
+   @keyframes fadeInOverlay {
+      from {
+         opacity: 0;
+      }
+      to {
+         opacity: 1;
+      }
    }
 }

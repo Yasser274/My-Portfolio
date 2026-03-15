@@ -1,11 +1,26 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ReactNode } from "react";
 
 // Define the animation properties. We can have different animations.
-const animations = {
-   initial: { opacity: 0, x: -100 }, // Start invisible and 100px to the left
-   animate: { opacity: 1, x: 0 }, // Animate to fully visible at its original position
-   exit: { opacity: 0, x: 100 }, // Animate out by fading and moving 100px to the right
+const animations: Variants = {
+   // when it just starts loading
+   initial: {
+      opacity: 0,
+      filter: "blur(20px)",
+      scale: 1.02, // Slight scale up for a "zooming in" feel
+   },
+   // when page finishes loading
+   animate: {
+      opacity: 1,
+      filter: "blur(0px)",
+      scale: 1,
+   },
+   // when i switch to another page
+   exit: {
+      opacity: 0,
+      filter: "blur(20px)",
+      scale: 0.98, // Slight scale down as it leaves
+   },
 };
 interface AnimatedPageProps {
    children: ReactNode; // ✅ anything React can render
@@ -19,7 +34,7 @@ const AnimatedPage = ({ children }: AnimatedPageProps) => {
          initial="initial" // Tells the component to start with the styles defined in variants.initial.
          animate="animate" // When the component mounts (appears on the page), it will animate to the styles in variants.animate.
          exit="exit" // When the component unmounts (leaves the page), it will perform the exit animation before being removed.
-         transition={{ duration: 0.5 }} // Control the speed of the animation
+         transition={{ duration: 0.4 }} // Control the speed of the animation
       >
          {children}
       </motion.div>

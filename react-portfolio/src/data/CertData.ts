@@ -36,4 +36,11 @@ export const CertData = [
       certProvider: "Harvard",
       glowColor: "#7fe96aff",
    },
+   {
+      id: 6,
+      certName: `Google Data Analytics`,
+      certImg: `${getImageUrl("about/myCerts/Google_Data_Analytics_Course.png")}`,
+      certProvider: "Google",
+      glowColor: "rgb(240, 93, 56)",
+   },
 ];

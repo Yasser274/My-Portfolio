@@ -19,6 +19,8 @@ import "swiper/css/free-mode"; // Required for smooth thumbnail scrolling
 import "swiper/css/thumbs"; // Required for thumbnail linking
 import "swiper/css/autoplay";
 
+import useViewAmount from "../../utils/useViewAmount";
+
 const imgs: { url: string }[] = [
    { url: "https://i.imgur.com/Db2c2aU.png" },
    { url: "https://i.imgur.com/sxrfRQg.png" },
@@ -32,6 +34,8 @@ const imgs: { url: string }[] = [
 const Samples = () => {
    // State to link the main Swiper and the thumbnail Swiper
    const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+   // calling hook to check window width if it's mobile or desktop to change viewport {amount} so it triggers earlier or not
+   const viewAmount = useViewAmount();
 
    return (
       <>
@@ -39,7 +43,7 @@ const Samples = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={{ once: true, amount: viewAmount }}
             id="samples"
             className={`${styles.samplesSection} ${layoutStyle.sectionPart}`}
          >

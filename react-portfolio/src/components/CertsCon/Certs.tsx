@@ -4,6 +4,7 @@ import { GlowingCard, GlowingCards } from "../common/GlowingCards";
 import { motion } from "framer-motion";
 import layoutStyle from "../Layout.module.css";
 import { containerVariants, itemVariants } from "../../utils/animationVariants";
+import useViewAmount from "../../utils/useViewAmount";
 
 interface CertsProps {
    id: number;
@@ -17,13 +18,16 @@ interface CertsArray {
 }
 
 const Certs = ({ certData }: CertsArray) => {
+
+   const viewAmount = useViewAmount()
+
    return (
       <section>
          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: viewAmount }}
             className={`${styles.certSection} ${layoutStyle.sectionPart} `}
             id="certifications"
          >

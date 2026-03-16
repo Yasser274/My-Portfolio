@@ -4,6 +4,7 @@ import IndividualExp from "./IndividualExp";
 import JobExperiences from "./JobExperiences";
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "../../utils/animationVariants";
+import useViewAmount from "../../utils/useViewAmount";
 
 interface ExperienceItem {
    image: string;
@@ -27,6 +28,8 @@ interface ExperienceAndJobsProps {
 }
 
 const Experience = ({ experiences, jobsExperiences }: ExperienceAndJobsProps) => {
+   const viewAmount = useViewAmount();
+
    return (
       <motion.section
          id="experience"
@@ -34,7 +37,7 @@ const Experience = ({ experiences, jobsExperiences }: ExperienceAndJobsProps) =>
          variants={containerVariants}
          initial="hidden"
          whileInView="visible"
-         viewport={{ once: true, amount: 0.3 }} //  change amount to control when the appearing animation should start
+         viewport={{ once: true, amount: viewAmount }} //  change amount to control when the appearing animation should start
       >
          {/* Child 1: The Title */}
          <motion.h2 variants={itemVariants} className={styles.bigTitle}>

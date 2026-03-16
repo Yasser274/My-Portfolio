@@ -3,14 +3,16 @@ import { getImageUrl } from "../../utils/imageUtils";
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "../../utils/animationVariants";
 import layoutStyle from "../Layout.module.css";
+import useViewAmount from "../../utils/useViewAmount";
 
 const About = () => {
+   const viewAmount = useViewAmount();
    return (
       <motion.section
          variants={containerVariants}
          initial="hidden"
          whileInView="visible"
-         viewport={{ once: true, amount: 0.15 }}
+         viewport={{ once: true, amount: viewAmount }}
          className={`${styles.aboutSect} ${layoutStyle.sectionPart}`}
          id="about"
       >

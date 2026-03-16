@@ -3,17 +3,20 @@ import styles from "./Hero.module.css";
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "../../utils/animationVariants";
 import layoutStyle from "../Layout.module.css";
+import useViewAmount from "../../utils/useViewAmount";
 
 
 const Hero = () => {
+   const viewAmount = useViewAmount()
+
    return (
-      // ✅ Make the outer section the animation root
+      // Make the outer section the animation root
       <motion.section
          className={`${styles.sectionM} ${layoutStyle.sectionPart}`}
          variants={containerVariants}
          initial="hidden"
          whileInView="visible"
-         viewport={{ once: true, amount: 0.3 }}
+         viewport={{ once: true, amount: viewAmount }}
       >
          <motion.div variants={containerVariants} className={styles.cont}>
             <motion.div className={styles.nameCon} variants={itemVariants}>

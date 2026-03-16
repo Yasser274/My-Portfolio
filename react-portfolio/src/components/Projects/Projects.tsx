@@ -4,19 +4,23 @@ import { ProjectsDataTypes } from "../../data/ProjectsData";
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "../../utils/animationVariants";
 import layoutStyle from "../Layout.module.css";
+import useViewAmount from "../../utils/useViewAmount";
 
 interface ProjectsPropsArray {
    projects: ProjectsDataTypes[];
 }
 
 const Projects = ({ projects }: ProjectsPropsArray) => {
+   // calling hook to check window width if it's mobile or desktop to change viewport {amount} so it triggers earlier or not
+   const viewAmount = useViewAmount();
+
    return (
       <section>
          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: viewAmount }}
             className={layoutStyle.sectionPart}
             id="projects"
          >

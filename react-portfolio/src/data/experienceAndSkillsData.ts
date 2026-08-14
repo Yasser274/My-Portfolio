@@ -13,7 +13,7 @@ export const experienceData = [
       cert: "https://drive.google.com/file/d/1ksu2xI06lx-wOJdFVE-oyXJgeiutuLAP/view",
    },
    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1280px-HTML5_logo_and_wordmark.svg.png",
       title: "HTML5",
    },
    {
@@ -25,6 +25,14 @@ export const experienceData = [
       title: "JavaScript",
    },
    {
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/React_Logo_SVG.svg/1920px-React_Logo_SVG.svg.png",
+      title: "React",
+   },
+   {
+      image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+      title: "Node.js",
+   },
+   {
       image: "https://static.wikia.nocookie.net/logopedia/images/a/a8/Tag_Manager_icon_2016.png",
       title: "Google Tag Manager",
    },
@@ -34,7 +42,7 @@ export const experienceData = [
       cert: "https://drive.google.com/file/d/1GJMnygySUqKzEGU6BuG3uL8SAtPqOl49/view",
    },
    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/600px-New_Power_BI_Logo.svg.png?20210102182532",
+      image: "https://upload.wikimedia.org/wikipedia/en/thumb/2/20/Power_BI_logo.svg/1280px-Power_BI_logo.svg.png",
       title: "Power Bi",
       cert: "https://drive.google.com/file/d/1z2SqooEXTjGRw4N-nHQgUmSDv6riPBqQ/view?usp=drive_link",
       moreInfo: `I couldn't publish my Power BI dashboard because it requires a subscription. Instead, I made a video showcasing it.`,
@@ -50,7 +58,7 @@ export const experienceData = [
       title: "Photoshop",
    },
    {
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/1200px-Adobe_Premiere_Pro_CC_icon.svg.png",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Adobe_Premiere_Pro_CC_2026_icon.svg/1280px-Adobe_Premiere_Pro_CC_2026_icon.svg.png",
       title: "Premiere Pro",
    },
    {
@@ -72,13 +80,24 @@ export const jobsExperienceData = [
       ],
    },
    {
-      jobTitle: "Tamheer Trainee",
+      jobTitle: "Web Developer & Pre-Sales Trainee",
       companyName: "MIS",
       companyLogo: "https://companieslogo.com/img/orig/7200.SR_BIG-4b38926c.png?t=1751597216",
-      date: `Jan 2026 - `,
+      date: "Jan 2026 - Jul 2026",
       points: [
-         "...."
+         "Architected and deployed a corporate intranet portal for 500+ employees using SPFx, TypeScript, and SCSS with role-based access and attendance tracking.",
+         "Engineered a dynamic news and events engine powered by SharePoint REST APIs for real-time company updates.",
+         "Developed custom UI components (JS/CSS), optimized mobile responsiveness, and configured GA4 conversion tracking to improve user engagement.",
+         "Assisted with technical scoping, Requests for Proposals (RFPs), and case study research for enterprise software clients.",
       ],
+   },
+   {
+      jobTitle: "Web Developer & Pre-Sales Specialist",
+      companyName: "MIS",
+      companyLogo: "https://companieslogo.com/img/orig/7200.SR_BIG-4b38926c.png?t=1751597216",
+      date: "Jan 2026 - Jul 2026",
+      points: [
+         ],
    },
    // {
    //    jobTitle: "Intern",

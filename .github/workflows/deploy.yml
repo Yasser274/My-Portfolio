@@ -35,7 +35,7 @@ jobs:
 
          - name: Deploy Build to S3
            run: |
-              aws s3 sync dist/ s3://${{ secrets.S3_BUCKET }} --delete
+              aws s3 sync ./react-portfolio/dist/ s3://${{ secrets.S3_BUCKET }} --delete
 
          - name: Invalidate CloudFront Cache
            run: |

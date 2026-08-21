@@ -89,7 +89,7 @@ const Contact = () => {
             <div className={styles.column}>
                <h3 className={styles.columnTitle}>Resources</h3>
                <a
-                  href="https://drive.google.com/file/d/1VV-jyLgCFXDcjSoxq-OqqIPsyoNW25bz/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1Fpq257BTP5rpWyT6m95XqfTJmIEQfvJt/view?usp=drive_link"
                   className={styles.link}
                   target="_blank"
                >

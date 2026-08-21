@@ -167,30 +167,20 @@
    background-color: var(--darken-hover-btn);
 }
 
-.avatarPic {
-   border-radius: 50%;
+.avatarWrap {
    width: 30%;
-   z-index: 1;
    max-width: 850px;
-   height: auto;
    flex-shrink: 0;
-   animation-name: floating;
-   animation-duration: 3s;
-   animation-iteration-count: infinite;
-   animation-timing-function: ease-in-out;
+   z-index: 1;
 }
 
-@keyframes floating {
-   0% {
-      transform: translate(0, 0px);
-   }
-   50% {
-      transform: translate(0, 10px);
-   }
-   100% {
-      transform: translate(0, -0px);
-   }
+.avatarPic {
+   display: block;
+   width: 100%;
+   height: auto;
+   border-radius: 50%;
 }
+
 .topBlur,
 .bottomBlur {
    pointer-events: none;

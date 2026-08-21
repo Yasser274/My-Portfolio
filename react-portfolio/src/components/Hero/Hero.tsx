@@ -5,9 +5,8 @@ import { containerVariants, itemVariants } from "../../utils/animationVariants";
 import layoutStyle from "../Layout.module.css";
 import useViewAmount from "../../utils/useViewAmount";
 
-
 const Hero = () => {
-   const viewAmount = useViewAmount()
+   const viewAmount = useViewAmount();
 
    return (
       // Make the outer section the animation root
@@ -26,9 +25,9 @@ const Hero = () => {
             </motion.div>
 
             <motion.p variants={itemVariants} className={styles.desc}>
-               I blend marketing expertise, data-driven analytics, and web development skills to create
-               impactful digital experiences. By leveraging technology, I craft user-friendly websites while
-               using analytics to optimize strategies for better engagement and growth.
+               I bridge the gap between business strategy, data analytics, and technical architecture. From
+               scoping enterprise requirements and analyzing user behavior to engineering scalable digital
+               platforms, I build solutions that drive measurable business impact.{" "}
             </motion.p>
 
             <motion.a
@@ -41,12 +40,20 @@ const Hero = () => {
             </motion.a>
          </motion.div>
 
-         <motion.img
-            src={getImageUrl("hero/Avatar.png")}
-            alt="Profile Picture"
-            className={styles.avatarPic}
-            variants={itemVariants}
-         />
+         <motion.div variants={itemVariants} className={styles.avatarWrap}>
+            <motion.img
+               src={getImageUrl("hero/Avatar.png")}
+               alt="Profile Picture"
+               className={styles.avatarPic}
+               animate={{ y: [-9, 9, -9], rotate: [-1.2, 1.2, -1.2] }}
+               transition={{
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  times: [0, 0.5, 1],
+               }}
+            />
+         </motion.div>
 
          <div className={styles.topBlur}></div>
          <div className={styles.bottomBlur}></div>

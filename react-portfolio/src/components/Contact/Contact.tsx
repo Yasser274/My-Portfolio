@@ -99,7 +99,7 @@ const Contact = () => {
          </div>
 
          <div className={styles.bottomBar}>
-            <p>© {new Date().getFullYear()} Yasser. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Yasser Alsuwaid. All rights reserved.</p>
          </div>
       </footer>
    );

@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "../../utils/animationVariants";
 import layoutStyle from "../Layout.module.css";
 import useViewAmount from "../../utils/useViewAmount";
+import Workflow_Icon from "../../assets/about/workflow-svg";
+import { div } from "framer-motion/client";
 
 const About = () => {
    const viewAmount = useViewAmount();
@@ -34,19 +36,19 @@ const About = () => {
             <motion.ul variants={containerVariants} className={styles.aboutsCon}>
                {[
                   {
-                     img: "marketing.png",
-                     title: "Marketing",
-                     p: "Crafting compelling campaigns and understanding consumer behavior",
+                     img: <Workflow_Icon width={120} height={120} primaryColor={"#161616"} />,
+                     title: "Product & Solutions",
+                     p: "Translating complex enterprise requirements and RFPs into scalable digital products.",
                   },
                   {
                      img: "analytics.png",
                      title: "Analytics",
-                     p: "Using data insights to optimize marketing efforts and measure success",
+                     p: "Leveraging SQL, Power BI, and GA4 to map user journeys, track funnels, and optimize growth.",
                   },
                   {
                      img: "technology.png",
-                     title: "Technology",
-                     p: "Using data insights to optimize marketing efforts and measure success",
+                     title: "Architecture & Code",
+                     p: "Engineering modern web platforms, REST APIs, and cloud-ready systems with TypeScript.",
                   },
                ].map((item, index) => (
                   <motion.li
@@ -54,7 +56,21 @@ const About = () => {
                      variants={itemVariants}
                      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                   >
-                     <img src={getImageUrl(`about/${item.img}`)} alt="" className={styles.smallImgs} />
+                     {/* Check if image is passed in or svg */}
+                     {typeof item.img === "string" ? (
+                        <img
+                           src={getImageUrl(`about/${item.img}`)}
+                           alt={item.title}
+                           className={styles.smallImgs}
+                        />
+                     ) : (
+                        <div
+                           className={styles.smallImgs}
+                           style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+                        >
+                           {item.img}
+                        </div>
+                     )}
                      <div className={styles.smallCons}>
                         <h3 className={styles.smallTitle}>{item.title}</h3>
                         <p>{item.p}</p>

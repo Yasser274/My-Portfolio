@@ -5,7 +5,6 @@ import { containerVariants, itemVariants } from "../../utils/animationVariants";
 import layoutStyle from "../Layout.module.css";
 import useViewAmount from "../../utils/useViewAmount";
 import Workflow_Icon from "../../assets/about/workflow-svg";
-import { div } from "framer-motion/client";
 
 const About = () => {
    const viewAmount = useViewAmount();

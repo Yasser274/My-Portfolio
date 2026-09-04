@@ -15,6 +15,7 @@
    border: 1px solid #2a3a57;
    transition: all 0.3s ease-in-out;
    z-index: -4;
+   height: 100%;
 }
 /* Position the card's content on top of the spotlight */
 .card > * {

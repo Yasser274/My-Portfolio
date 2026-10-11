@@ -4,10 +4,33 @@ import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "../../utils/animationVariants";
 import layoutStyle from "../Layout.module.css";
 import useViewAmount from "../../utils/useViewAmount";
-import Workflow_Icon from "../../assets/about/workflow-svg";
+
+// Vector components
+import SharePoint_Icon from "../../assets/about/sharepoint-svg";
+import FullStack_Icon from "../../assets/about/fullstack-svg";
+import CloudData_Icon from "../../assets/about/clouddata-svg";
 
 const About = () => {
    const viewAmount = useViewAmount();
+
+   const aboutCards = [
+      {
+         icon: <SharePoint_Icon width={95} height={95} primaryColor="#161616" accentColor="#6f99b6" />,
+         title: "Microsoft 365 & SharePoint",
+         p: "Building SPFx web parts with React, TypeScript and Fluent UI, integrated with Microsoft Graph, Azure AD and Power Automate.",
+      },
+      {
+         icon: <FullStack_Icon width={90} height={90} primaryColor="#161616" accentColor="#6f99b6" />,
+         title: "Full-Stack Web",
+         p: "Building responsive web apps with React, Node.js, Express and PostgreSQL, from authentication to database design.",
+      },
+      {
+         icon: <CloudData_Icon width={90} height={90} primaryColor="#161616" accentColor="#6f99b6" />,
+         title: "Cloud & Data",
+         p: "AWS Certified Cloud Practitioner preparing for Solutions Architect Associate, with SQL, Python and Power BI for data work.",
+      },
+   ];
+
    return (
       <motion.section
          variants={containerVariants}
@@ -21,7 +44,6 @@ const About = () => {
             About
          </motion.h2>
 
-         {/* ✅ Changed from <div> to <motion.div> with containerVariants */}
          <motion.div variants={containerVariants} className={styles.twoBox}>
             <motion.div
                variants={itemVariants}
@@ -31,45 +53,19 @@ const About = () => {
                <img src={getImageUrl("about/About-Img.png")} alt="About Me" className={styles.aboutImg} />
             </motion.div>
 
-            {/* ✅ Changed from <ul> to <motion.ul> with containerVariants */}
             <motion.ul variants={containerVariants} className={styles.aboutsCon}>
-               {[
-                  {
-                     img: <Workflow_Icon width={120} height={120} primaryColor={"#161616"} />,
-                     title: "Product & Solutions",
-                     p: "Translating complex enterprise requirements and RFPs into scalable digital products.",
-                  },
-                  {
-                     img: "analytics.png",
-                     title: "Analytics",
-                     p: "Leveraging SQL, Power BI, and GA4 to map user journeys, track funnels, and optimize growth.",
-                  },
-                  {
-                     img: "technology.png",
-                     title: "Architecture & Code",
-                     p: "Engineering modern web platforms, REST APIs, and cloud-ready systems with TypeScript.",
-                  },
-               ].map((item, index) => (
+               {aboutCards.map((item, index) => (
                   <motion.li
                      key={index}
                      variants={itemVariants}
                      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                   >
-                     {/* Check if image is passed in or svg */}
-                     {typeof item.img === "string" ? (
-                        <img
-                           src={getImageUrl(`about/${item.img}`)}
-                           alt={item.title}
-                           className={styles.smallImgs}
-                        />
-                     ) : (
-                        <div
-                           className={styles.smallImgs}
-                           style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-                        >
-                           {item.img}
-                        </div>
-                     )}
+                     <div
+                        className={styles.smallImgs}
+                        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+                     >
+                        {item.icon}
+                     </div>
                      <div className={styles.smallCons}>
                         <h3 className={styles.smallTitle}>{item.title}</h3>
                         <p>{item.p}</p>

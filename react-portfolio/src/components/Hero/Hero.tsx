@@ -20,14 +20,14 @@ const Hero = () => {
          <motion.div variants={containerVariants} className={styles.cont}>
             <motion.div className={styles.nameCon} variants={itemVariants}>
                <h1 className={styles.intro}>
-                  Hi, I'm<span className={styles.myName}>Yasser</span>
+                  Hi, I'm<span className={styles.myName}>Yasser,</span>
                </h1>
             </motion.div>
 
             <motion.p variants={itemVariants} className={styles.desc}>
-               I bridge the gap between business strategy, data analytics, and technical architecture. From
-               scoping enterprise requirements and analyzing user behavior to engineering scalable digital
-               platforms, I build solutions that drive measurable business impact.{" "}
+               I'm a web developer building on SharePoint Online and Microsoft 365. I create SPFx web parts in
+               React and TypeScript, integrate them with Microsoft Graph and backend APIs, and build
+               full-stack apps with Express and PostgreSQL.
             </motion.p>
 
             <motion.a

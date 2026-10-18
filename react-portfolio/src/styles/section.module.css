@@ -1,0 +1,46 @@
+/* Layout stuff every page uses
+   //? :where() makes these have zero specificity so any class in a component can override them
+   no matter which css file the browser loads first (had a bug before where the order changed the hero spacing) */
+
+/* keeps the content in the middle with space on the sides */
+:where(.container) {
+   width: 100%;
+   max-width: var(--page-max);
+   margin-inline: auto;
+   padding-inline: var(--page-pad);
+}
+
+/* each section on the home page */
+:where(.section) {
+   position: relative;
+   padding-block: var(--section-space);
+}
+/* some sections get a slightly lighter grey so the page isn't one flat color */
+:where(.sectionAlt) {
+   background: var(--color-bg-alt);
+   border-block: 1px solid var(--color-border);
+}
+
+:where(.sectionHead) {
+   max-width: 720px;
+   margin-bottom: clamp(36px, 5vw, 56px);
+}
+:where(.sectionTitle) {
+   font-size: var(--text-2xl);
+}
+/* the small teal line above every section title */
+:where(.sectionTitle)::before {
+   content: "";
+   display: block;
+   width: 44px;
+   height: 4px;
+   margin-bottom: 18px;
+   border-radius: var(--radius-pill);
+   background: var(--gradient-accent);
+}
+:where(.sectionNote) {
+   margin-top: 12px;
+   color: var(--color-text-muted);
+   font-size: var(--text-lg);
+   max-width: var(--measure);
+}

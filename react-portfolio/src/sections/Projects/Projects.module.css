@@ -1,0 +1,142 @@
+.grid {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 24px;
+}
+
+/* ===== Project card ===== */
+.card {
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+   transition:
+      border-color 0.45s var(--ease-out),
+      box-shadow 0.45s var(--ease-out);
+}
+/* teal glow that follows the mouse inside the card (--x and --y come from useSpotlight) */
+.card::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   z-index: 1;
+   background: radial-gradient(380px circle at var(--x, 50%) var(--y, 50%), rgba(var(--accent-rgb), 0.14), transparent 70%);
+   opacity: 0;
+   transition: opacity 0.45s var(--ease-out);
+   pointer-events: none;
+}
+.card:hover {
+   border-color: rgba(var(--accent-rgb), 0.55);
+   box-shadow: var(--glow-accent);
+}
+.card:hover::before {
+   opacity: 1;
+}
+
+/* the first project takes the full width with the picture on the left and text on the right */
+.featured {
+   grid-column: 1 / -1;
+   display: grid;
+   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+}
+
+.imageLink {
+   position: relative;
+   display: block;
+   overflow: hidden;
+   background: var(--color-surface-2);
+}
+/* dark fade at the bottom of the picture so it blends into the card */
+.imageLink::after {
+   content: "";
+   position: absolute;
+   inset: 0;
+   background: linear-gradient(to top, rgba(var(--surface-rgb), 0.55), transparent 45%);
+}
+.image {
+   width: 100%;
+   height: 100%;
+   aspect-ratio: 16 / 10;
+   object-fit: cover;
+   transition: transform 0.8s var(--ease-out);
+}
+.card:hover .image {
+   transform: scale(1.06);
+}
+
+.body {
+   position: relative;
+   z-index: 2;
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+   padding: 24px 26px 26px;
+}
+.featured .body {
+   padding: 32px;
+}
+.name {
+   font-size: var(--text-xl);
+}
+.featured .name {
+   font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.1rem);
+}
+.tags {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 6px;
+   margin-top: 12px;
+}
+.desc {
+   margin-top: 16px;
+   color: var(--color-text-muted);
+}
+.desc > * + * {
+   margin-top: 0.7em;
+}
+.leadIn {
+   font-weight: 700;
+   color: var(--color-text);
+}
+.bullets {
+   display: grid;
+   gap: 6px;
+   list-style: none;
+}
+.bullets li {
+   position: relative;
+   padding-left: 20px;
+}
+.bullets li::before {
+   content: "";
+   position: absolute;
+   left: 2px;
+   top: 0.62em;
+   width: 8px;
+   height: 8px;
+   border-radius: 2px;
+   background: var(--color-accent-strong);
+   box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.8);
+}
+
+.links {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   margin-top: auto;
+   padding-top: 22px;
+}
+.linkBtn {
+   padding: 10px 18px;
+}
+
+@media (width <= 900px) {
+   .grid {
+      grid-template-columns: 1fr;
+   }
+   .featured {
+      display: flex;
+   }
+   .featured .body {
+      padding: 24px 22px;
+   }
+}

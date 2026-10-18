@@ -1,0 +1,126 @@
+.footer {
+   position: relative;
+   padding: var(--section-space) 0 28px;
+   overflow: hidden;
+}
+/* the teal glow coming up from the bottom of the page */
+.footer::before {
+   content: "";
+   position: absolute;
+   left: 50%;
+   bottom: -320px;
+   width: 900px;
+   height: 520px;
+   transform: translateX(-50%);
+   border-radius: 50%;
+   background: rgba(var(--accent-rgb), 0.22);
+   filter: blur(120px);
+   pointer-events: none;
+}
+
+/* ===== Contact card with the spinning border =====
+   //? @property lets css animate a variable (--angle) which normally it can't do,
+   so the conic-gradient keeps rotating around the card */
+@property --angle {
+   syntax: "<angle>";
+   initial-value: 0deg;
+   inherits: false;
+}
+.cta {
+   position: relative;
+   padding: 1px;
+   border-radius: calc(var(--radius-lg) + 8px);
+   background: conic-gradient(
+      from var(--angle),
+      var(--color-border) 0deg,
+      var(--color-border) 200deg,
+      var(--gradient-stop-1) 260deg,
+      var(--gradient-stop-3) 300deg,
+      var(--color-border) 340deg
+   );
+   animation: rotate-border 6s linear infinite;
+}
+@keyframes rotate-border {
+   to {
+      --angle: 360deg;
+   }
+}
+.ctaInner {
+   position: relative;
+   padding: clamp(36px, 6vw, 72px);
+   border-radius: calc(var(--radius-lg) + 7px);
+   background:
+      radial-gradient(600px circle at 85% 0%, rgba(var(--accent-rgb), 0.18), transparent 60%),
+      var(--color-surface);
+   text-align: center;
+}
+.title {
+   font-size: clamp(2rem, 1.3rem + 2.6vw, 3.4rem);
+   letter-spacing: -0.03em;
+}
+.lead {
+   max-width: 56ch;
+   margin: 16px auto 0;
+   color: var(--color-text-muted);
+   font-size: var(--text-lg);
+}
+.actions {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 12px;
+   margin-top: 32px;
+}
+.copy {
+   min-width: 9.5em;
+}
+.copyLabel {
+   display: inline-flex;
+   align-items: center;
+   gap: 8px;
+}
+
+/* ===== Bottom part (copyright + icons) ===== */
+.bottom {
+   position: relative;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   gap: 16px;
+   margin-top: 56px;
+   padding-top: 24px;
+   border-top: 1px solid var(--color-border);
+}
+.meta {
+   color: var(--color-text-faint);
+   font-size: var(--text-sm);
+}
+.links {
+   display: flex;
+   gap: 8px;
+}
+.iconLink {
+   display: grid;
+   place-items: center;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   color: var(--color-text-muted);
+   border: 1px solid var(--color-border);
+   transition:
+      color var(--duration) ease,
+      border-color var(--duration) ease,
+      transform 0.3s var(--ease-out);
+}
+.iconLink:hover {
+   color: var(--color-accent-light);
+   border-color: var(--color-accent);
+   transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .cta {
+      animation: none;
+   }
+}

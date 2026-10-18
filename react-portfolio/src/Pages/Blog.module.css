@@ -1,362 +1,156 @@
-:root {
-   --background-light: #1a1a1a;
-   --card-background: #242424;
-   --border-color: #444;
-   --text-primary: #f0f0f0;
-   --text-secondary: #a0a0a0;
-   --accent-color: #00bfff; /* Deep Sky Blue */
+/* ===== Blog page + the title at the top of these pages ===== */
+.page {
+   padding-top: calc(var(--nav-height) + clamp(40px, 7vw, 96px));
 }
-
-/* the animation for the floating effect for the blurs */
-@keyframes float {
-   0% {
-      transform: translate(0, 0) rotate(0deg);
-   }
-   50% {
-      transform: translate(40px, 20px) rotate(180deg);
-   }
-   100% {
-      transform: translate(0, 0) rotate(360deg);
-   }
-}
-/* Base class for all background glow elements */
-.backgroundGlow {
-   position: absolute;
-   z-index: -1; /* Place it behind the content */
-   filter: blur(100px);
-   border-radius: 50%; /* Use 50% for a perfect circle/oval */
-   will-change: transform; /* Performance hint for the browser */
-}
-.glow1 {
-   /* Inherits all styles from .backgroundGlow */
-   composes: backgroundGlow;
-
-   width: 500px;
-   height: 500px;
-   top: -352px;
-   left: -200px;
-   background: radial-gradient(
-      circle,
-      rgba(25, 55, 109, 0.6) 0%,
-      rgba(83, 120, 149, 0.2) 60%,
-      rgba(25, 55, 109, 0) 100%
-   );
-   animation: float 20s ease-in-out infinite alternate;
-}
-.glow2 {
-   composes: backgroundGlow;
-
-   width: 400px;
-   height: 400px;
-   bottom: -100px;
-   right: -150px;
-   background: radial-gradient(
-      circle,
-      rgba(0, 91, 191, 0.5) 0%,
-      rgba(0, 187, 255, 0.1) 60%,
-      rgba(0, 91, 191, 0) 100%
-   );
-
-   /* Apply the same animation but with a delay to de-synchronize them */
-   animation: float 25s ease-in-out infinite alternate;
-   animation-delay: -10s;
-}
-
-/* =======
-/*. BLOGS PAGE SECTION
-==========*/
-
-.blogBlur {
-   position: absolute;
-   width: 41vw;
-   height: 50vh;
-   min-width: 61px;
-   min-height: 335px;
-   top: 81px;
-   left: -25vw;
-   border-radius: 764px;
-   background: rgba(25, 55, 109, 0.7);
-   filter: blur(100px);
-   z-index: -20;
-   overflow: hidden;
-}
-.blogBlur2 {
-   position: absolute;
-   width: 41vw;
-   height: 50vh;
-   min-width: 61px;
-   min-height: 335px;
-   top: -459px;
-   left: 50vw;
-   border-radius: 764px;
-   background: rgba(25, 55, 109, 0.7);
-   filter: blur(100px);
-   z-index: -20;
-   overflow: hidden;
-}
-
-.blogSecCon {
-   display: flex;
-   width: 100%;
-   justify-content: center;
-}
-
-.blogSection {
-   position: relative;
-   width: 100%;
-   max-width: 1200px;
-   margin: 4rem auto;
-   padding: 0 2rem;
-   display: flex;
-   flex-direction: column;
-   gap: 2.5rem;
-   z-index: 10;
+.pageHeader {
+   margin-bottom: 40px;
 }
 .pageTitle {
-   font-size: 2.2rem;
-   font-weight: 700;
-   color: var(--text-primary);
-   text-align: center;
-   padding-bottom: 0.5rem;
-   position: relative;
-   align-self: center;
-   letter-spacing: 3px;
+   font-size: var(--text-hero);
+   font-weight: 800;
+   line-height: var(--leading-tight);
+   letter-spacing: -0.035em;
+}
+.pageLead {
+   margin-top: 14px;
+   max-width: var(--measure);
+   color: var(--color-text-muted);
+   font-size: var(--text-lg);
+}
+.status {
+   color: var(--color-text-muted);
+}
+
+/* ===== One post ===== */
+.article {
+   max-width: 72ch;
+   margin-inline: auto;
+}
+.back {
    display: inline-flex;
-   text-transform: uppercase;
+   padding: 6px 14px;
+   border-radius: var(--radius-pill);
+   font-size: var(--text-sm);
+   font-weight: 600;
+   color: var(--color-text-muted);
+   border: 1px solid var(--color-border);
+   transition:
+      border-color var(--duration) ease,
+      color var(--duration) ease;
 }
-.pageTitle::before {
-   content: "";
-   position: absolute;
-   bottom: 8px;
-   left: 0;
-   width: 101%;
-   height: 4px;
-   background: rgb(9, 32, 63);
-   background: linear-gradient(63deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
-}
-/* ========
-   BLOGS GRID CONTAINER
-   ========= */
-.blogsGrid {
-   display: grid;
-   grid-template-columns: 1fr; /* Default to a single column for mobile */
-   gap: 2rem;
-}
-/* ========
-   INDIVIDUAL BLOG CARD
-   ========= */
-.blogLink {
-   text-decoration: none;
-   color: inherit;
-}
-.blogCard {
-   background-color: var(--card-background);
-   border-radius: 16px;
-   border: 1px solid var(--border-color);
-   overflow: hidden; /* Ensures the image corners are rounded */
-   display: flex;
-   flex-direction: column;
-   height: 100%; /* Make cards in the same row equal height */
-   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.blogCard:hover {
-   transform: translateY(-8px);
-   border-color: var(--accent-color);
-   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-.cardImage {
-   width: 100%;
-   aspect-ratio: 16 / 9;
-   object-fit: cover;
-}
-
-.loadingCon {
-   position: relative;
-   width: 100%;
-   max-width: 1200px;
-   margin: 4rem auto;
-   padding: 0 2rem;
-   display: flex;
-   flex-direction: column;
-   gap: 2.5rem;
-   z-index: 10;
-   justify-content: center;
-   align-items: center;
-}
-.blogContentCon {
-   display: flex;
-   flex-direction: column;
+.back:hover {
+   border-color: var(--color-accent);
 }
 .postHeader {
-   display: flex;
-   gap: 10px;
-   flex-direction: column;
-   align-items: center;
-   margin-bottom: 3rem;
-   border-bottom: 1px solid var(--border-color);
-   padding-bottom: 1.1rem;
-}
-.cardContent {
-   padding: 1.5rem;
-   display: flex;
-   flex-direction: column;
-   flex-grow: 1; /* Allows this container to fill available space */
-}
-
-.cardTitle {
-   font-size: 1.5rem;
-   font-weight: 600;
-   color: var(--text-primary);
-   margin-bottom: 0.75rem;
-}
-
-.cardExcerpt {
-   font-size: 1rem;
-   color: var(--text-secondary);
-   line-height: 1.6;
-   flex-grow: 1; /* Pushes the date to the bottom */
-}
-
-.cardDate {
-   font-size: 0.875rem;
-   color: var(--accent-color);
-   margin-top: 1.5rem; /* Space above the date */
-   align-self: flex-start; /* Align to the start of the cross axis */
-}
-
-/* =========
-/*. INDIVIDUAL BLOG SECTION 
-=========*/
-.blogPostContainer {
-   width: clamp(250px, 80vw, 1200px); /* clamp(min value,preferred must be vw or %,max value) */
-   margin: 4rem auto;
-   padding: 1.5rem 2rem;
-   color: var(--text-primary);
-   position: relative;
-   z-index: 1;
-   overflow: hidden;
-   background-color: rgba(31, 31, 31, 0.363);
-   backdrop-filter: blur(10px);
-   -webkit-backdrop-filter: blur(10px);
-   border-radius: 16px;
-   border: 1px solid rgba(255, 255, 255, 0.2);
-   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-.postMainImg {
-   width: 100%;
-   border-radius: 12px;
-   aspect-ratio: 2 / 1;
-   object-fit: cover;
+   margin-top: 28px;
 }
 .postTitle {
-   font-size: clamp(1.4rem, 7.8vw, 3rem);
+   font-size: clamp(2rem, 1.2rem + 3vw, 3.4rem);
    font-weight: 800;
-   line-height: 1.2;
-   margin-bottom: 0rem;
-   color: var(--text-primary);
+   line-height: 1.08;
+   letter-spacing: -0.03em;
 }
-.postSub {
-   font-size: clamp(0.8rem, 4.4vw, 1.2rem);
-   font-weight: 600;
+.postLead {
+   margin-top: 16px;
+   font-size: var(--text-lg);
+   color: var(--color-text-muted);
 }
-.postMeta {
-   display: flex;
-   align-items: center;
-   gap: 1rem;
-   color: var(--text-secondary);
-   font-size: clamp(0.6rem, 3.2vw, 0.9rem);
+.postDate {
+   display: block;
+   margin-top: 16px;
+   font-size: var(--text-sm);
+   font-weight: 700;
+   color: var(--color-accent);
 }
+.cover {
+   width: 100%;
+   margin-top: 36px;
+   aspect-ratio: 2 / 1;
+   object-fit: cover;
+   border-radius: var(--radius-md);
+   border: 1px solid var(--color-border);
+}
+
 /* =========
 /*. BLOG CONTENT TAKEN FROM MD FORM (## is h2 in md)
 ========= */
-.postBody {
-   font-size: clamp(0.9rem, 4.2vw, 1.125rem); /* 18px */
-   line-height: 1.7;
-   color: white;
-   color: var(--text-secondary);
+.prose {
+   margin-top: 40px;
+   font-size: 1.1rem;
+   line-height: 1.8;
+   color: var(--color-text-soft);
 }
-.postBody > p > img {
-   width: 90%;
+.prose h2,
+.prose h3,
+.prose strong {
+   color: var(--color-text);
 }
-.postBody h2,
-.postBody h3,
-.postBody h4 {
-   color: var(--text-primary);
-   line-height: 1.3;
-   margin: 2.5rem 0 1rem 0;
-   font-weight: 600;
+.prose > * + * {
+   margin-top: 1.2em;
 }
-.postBody h2 {
-   font-size: clamp(1.4rem, 5.2vw, 2rem)
+.prose h2 {
+   margin-top: 2.2em;
+   font-size: var(--text-xl);
 }
-.postBody h3 {
-   font-size: clamp(1.2rem, 4.6vw, 1.5rem)
+.prose h3 {
+   margin-top: 1.8em;
+   font-size: var(--text-lg);
 }
-.postBody a {
-   color: var(--accent-color);
-   text-decoration: none;
-   border-bottom: 2px solid transparent;
-   transition: border-color 0.2s ease;
+.prose h2 + *,
+.prose h3 + * {
+   margin-top: 0.6em;
 }
-.postBody a:hover {
-   border-bottom-color: var(--accent-color);
+.prose ul,
+.prose ol {
+   padding-left: 1.3em;
 }
-.postBody p {
-   margin-bottom: 1.5rem;
+.prose li + li {
+   margin-top: 0.4em;
 }
-.postBody ul,
-.postBody ol {
-   margin: 0 0 1.5rem 1.5rem;
-   list-style-position: inside;
-   padding-left: 0.5rem;
+.prose li::marker {
+   color: var(--color-text-muted);
 }
-/* Style for unordered lists (bullets) */
-.postBody ul {
-   list-style-type: disc; /* The classic solid circle bullet */
+.prose strong {
+   font-weight: 650;
 }
-/* Style for ordered lists (numbers) */
-.postBody ol {
-   list-style-type: decimal; /* 1, 2, 3... */
+.prose img {
+   width: 100%;
+   border-radius: var(--radius-md);
+   border: 1px solid var(--color-border);
 }
-.postBody li {
-   margin-bottom: 0.75rem;
+.prose p:has(> img) {
+   display: grid;
+   gap: 16px;
 }
-
+.prose a {
+   color: var(--color-accent);
+   text-decoration: underline;
+   text-underline-offset: 0.2em;
+}
+.prose a:hover {
+   color: var(--color-accent-light);
+}
+.prose blockquote {
+   padding-left: 1.2em;
+   border-left: 2px solid var(--color-accent);
+   color: var(--color-text-muted);
+}
 /* Styling for code blocks */
-.postBody pre {
-   background-color: var(--background-light);
-   border: 1px solid var(--border-color);
-   border-radius: 8px;
-   padding: 1rem;
-   margin-bottom: 1.5rem;
+.prose pre {
+   padding: 18px 20px;
    overflow-x: auto; /* Allow horizontal scrolling for long code lines */
-   font-size: clamp(0.8rem, 3.2vw, 0.9rem)
+   background: var(--color-surface-2);
+   border: 1px solid var(--color-border);
+   border-radius: var(--radius-md);
+   font-size: 0.875rem;
+   line-height: 1.6;
 }
-.postBody code {
-   font-family: "Fira Code", "Courier New", monospace;
-   color: var(--text-secondary);
+.prose code {
+   font-family: var(--font-code);
+   font-size: 0.9em;
 }
-/* Styling for blockquotes */
-.postBody blockquote {
-   margin: 1.5rem 0;
-   padding-left: 1.5rem;
-   border-left: 4px solid var(--accent-color);
-   color: #ccc;
-   font-style: italic;
-}
-
-/* ========
-/*. RESPONSIVE
-========= */
-@media (width >= 1580px) {
-   .blogsCon {
-      grid-template-columns: repeat(2, 1fr);
-   }
-}
-/* For large desktops */
-@media (width >= 1200px) {
-   .blogsGrid {
-      grid-template-columns: repeat(3, 1fr); /*Three columns that takes all available space*/
-   }
+.prose :not(pre) > code {
+   padding: 0.1em 0.35em;
+   background: var(--color-surface-2);
+   border-radius: var(--radius-sm);
 }

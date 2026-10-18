@@ -1,0 +1,111 @@
+@import "./theme.css";
+
+/* ===== Reset ===== */
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+html {
+   scroll-behavior: smooth; /* only used if lenis (smooth scroll) isn't running */
+   scroll-padding-top: calc(var(--nav-height) + 16px); /* so #links stop under the navbar and not behind it */
+   -webkit-text-size-adjust: 100%;
+   color-scheme: dark;
+}
+@media (prefers-reduced-motion: reduce) {
+   html {
+      scroll-behavior: auto;
+   }
+}
+/* *Lenis (smooth scroll) needs these, it does the smoothing itself so turn off the css one */
+html.lenis,
+html.lenis body {
+   height: auto;
+}
+html.lenis.lenis-smooth {
+   scroll-behavior: auto !important;
+}
+html.lenis.lenis-stopped {
+   overflow: clip;
+}
+.lenis.lenis-smooth iframe {
+   pointer-events: none;
+}
+body {
+   background-color: var(--color-bg);
+   color: var(--color-text);
+   font-family: var(--font-body);
+   font-size: var(--text-base);
+   line-height: var(--leading-body);
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+img,
+svg,
+video {
+   display: block;
+   max-width: 100%;
+}
+/* :where() so any class in a component can still change how buttons look */
+:where(button) {
+   font: inherit;
+   color: inherit;
+   background: none;
+   border: 0;
+   cursor: pointer;
+}
+ul[role="list"],
+ol[role="list"] {
+   list-style: none;
+}
+h1,
+h2,
+h3,
+h4 {
+   font-family: var(--font-display);
+   font-weight: 700;
+   line-height: 1.12;
+   letter-spacing: -0.02em;
+   text-wrap: balance;
+}
+p {
+   text-wrap: pretty;
+}
+::selection {
+   background: rgba(var(--accent-rgb), 0.45);
+   color: var(--color-on-accent);
+}
+
+/* ===== Links ===== */
+a {
+   color: inherit;
+   text-decoration: none;
+   transition: color var(--duration) ease;
+}
+a:hover {
+   color: var(--color-accent-light);
+}
+
+/* ===== Outline when using Tab on the keyboard (doesn't show when clicking with the mouse) ===== */
+:focus-visible {
+   outline: 2px solid var(--color-accent);
+   outline-offset: 3px;
+   border-radius: 4px;
+}
+
+/* text only screen readers can hear (hidden on the screen) */
+.sr-only {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   overflow: hidden;
+   clip: rect(0 0 0 0);
+   white-space: nowrap;
+}
+
+/* dark scrollbar so it matches the site */
+html {
+   scrollbar-color: var(--color-border-strong) var(--color-bg);
+}

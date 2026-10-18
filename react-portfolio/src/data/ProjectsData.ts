@@ -1,24 +1,9 @@
-import { getImageUrl } from "../utils/imageUtils";
+import { getImageUrl } from "@/utils/imageUtils";
+import type { ProjectItem } from "@/types";
 
-export interface ProjectDescription {
-   text: string;
-   isBold?: boolean;
-}
-export interface ProjectsDataTypes {
-   projectName: string;
-   projectImg: string;
-   projectDesc: ProjectDescription[];
-   projectTags: string[];
-   projectLinks: ProjectLink[];
-}
-export interface ProjectLink {
-   text: string;
-   url: string;
-}
-
-export const projectsData: ProjectsDataTypes[] = [
+export const projectsData: ProjectItem[] = [
    {
-      projectName: "Trend Bites (FullStack Web App)",
+      projectName: "Trend Bites",
       projectImg: `${getImageUrl("about/Trend_Bites_01.png")}`,
       projectDesc: [
          {
@@ -43,8 +28,8 @@ export const projectsData: ProjectsDataTypes[] = [
       ],
       projectTags: ["JavaScript", "TypeScript", "React", "PostgreSQL", "ExpressJS"],
       projectLinks: [
-         { text: "Watch Demo", url: "https://youtu.be/08h7WsgUVcY" },
-         { text: "Github Repo", url: "https://github.com/Yasser274/Fullstack-Project-React" },
+         { text: "Watch demo", url: "https://youtu.be/08h7WsgUVcY" },
+         { text: "Code on GitHub", url: "https://github.com/Yasser274/Fullstack-Project-React" },
       ],
    },
 
@@ -62,10 +47,10 @@ export const projectsData: ProjectsDataTypes[] = [
       projectTags: ["Python", "PostgreSQL", "Power BI","SQL"],
       projectLinks: [
          {
-            text: "Watch Demo",
+            text: "Watch demo",
             url: "https://drive.google.com/file/d/1ZTuawZ738NjPxoM9dL6n51qb7M0mO07k/view?usp=drive_link",
          },
-         { text: "Github Repo", url: "https://github.com/Yasser274/Retail-Marketing-Analytics" },
+         { text: "Code on GitHub", url: "https://github.com/Yasser274/Retail-Marketing-Analytics" },
       ],
    },
    {
@@ -78,8 +63,8 @@ export const projectsData: ProjectsDataTypes[] = [
       ],
       projectTags: ["JavaScript", "HTML", "CSS", "Google Analytics", "Google Tag Manager"],
       projectLinks: [
-         { text: "Website Link", url: "https://store-project.pages.dev/" },
-         { text: "Github Repo", url: "https://github.com/Yasser274/Store-Project" },
+         { text: "Live site", url: "https://store-project.pages.dev/" },
+         { text: "Code on GitHub", url: "https://github.com/Yasser274/Store-Project" },
       ],
    },
 ];

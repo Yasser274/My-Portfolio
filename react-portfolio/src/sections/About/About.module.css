@@ -1,0 +1,73 @@
+.about {
+   display: grid;
+   grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+   gap: clamp(32px, 5vw, 64px);
+   align-items: start;
+}
+.text {
+   display: flex;
+   flex-direction: column;
+   gap: 1.1em;
+   font-size: 1.075rem;
+   color: var(--color-text-soft);
+}
+.text > :last-child {
+   margin-top: 0.4em;
+}
+
+.cards {
+   display: flex;
+   flex-direction: column;
+   gap: 14px;
+}
+/* the cards, a teal glow follows the mouse when you hover them */
+.card {
+   display: flex;
+   gap: 18px;
+   align-items: flex-start;
+   padding: 20px 22px;
+   overflow: hidden;
+   transition: border-color 0.45s var(--ease-out);
+}
+.card::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   background: radial-gradient(260px circle at var(--x, 50%) var(--y, 50%), rgba(var(--accent-rgb), 0.18), transparent 70%);
+   opacity: 0;
+   transition: opacity 0.45s var(--ease-out);
+   pointer-events: none;
+}
+.card:hover {
+   border-color: rgba(var(--accent-rgb), 0.6);
+}
+.card:hover::before {
+   opacity: 1;
+}
+.card > * {
+   position: relative;
+}
+.iconBox {
+   flex-shrink: 0;
+   display: grid;
+   place-items: center;
+   width: 60px;
+   height: 60px;
+   border-radius: var(--radius-md);
+   background: var(--color-surface-2);
+   border: 1px solid var(--color-border);
+}
+.cardTitle {
+   font-size: var(--text-lg);
+}
+.cardText {
+   margin-top: 4px;
+   color: var(--color-text-muted);
+   font-size: var(--text-sm);
+}
+
+@media (width <= 960px) {
+   .about {
+      grid-template-columns: 1fr;
+   }
+}

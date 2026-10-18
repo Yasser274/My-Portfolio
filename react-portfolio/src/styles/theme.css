@@ -1,0 +1,87 @@
+/* =====================================================
+   *THEME
+   all the colors, sizes and effects of the site are here
+   change something once here and it changes everywhere
+   it's imported once in global.css so i don't need to import it in every module
+
+   Breakpoints (css variables don't work inside @media so they're just written here to remember them):
+   mobile <= 720px | tablet <= 960px
+   ===================================================== */
+
+:root {
+   /* ===== Greys (darkest to lightest) ===== */
+   --color-bg: #101214; /* page background */
+   --color-bg-alt: #13161a; /* the slightly lighter sections */
+   --color-surface: #181b1f; /* cards */
+   --color-surface-2: #1f2328; /* things inside cards, code blocks */
+   --color-border: #2a2f35;
+   --color-border-strong: #3a4148;
+   --color-text: #eceff1;
+   --color-text-muted: #9aa3ab;
+   --color-text-faint: #6b747c;
+
+   /* ===== Slate blue accent =====
+      the fill color (buttons) has to be a lot lighter than the background or the buttons look dead,
+      and the glow color has to be bright, a dark navy glow is invisible on dark grey */
+   --color-accent: #8dafd9; /* text, links, icons (8.3:1 contrast on the background) */
+   --color-accent-strong: #45699f; /* buttons and fills (white text on it is 5.6:1) */
+   --color-accent-hover: #4d72aa; /* buttons when you hover them */
+   --color-accent-light: #b8d2f5; /* hover color for text and icons */
+   --color-on-accent: #ffffff; /* text that sits on top of the accent (button text) */
+   --accent-rgb: 86, 117, 168; /* glow color as numbers so i can do see through versions EX: rgba(var(--accent-rgb), 0.2) */
+   --accent-light-rgb: 184, 210, 245; /* same as --color-accent-light but as numbers */
+
+   /* the 3 colors of the gradient (gradient text, the spinning ring, timeline line) */
+   --gradient-stop-1: #7fa3d6;
+   --gradient-stop-2: #9cbde8;
+   --gradient-stop-3: #c4dbf7;
+   --gradient-accent: linear-gradient(110deg, var(--gradient-stop-1) 0%, var(--gradient-stop-2) 50%, var(--gradient-stop-3) 100%);
+   --glow-accent: 0 0 0 1px rgba(var(--accent-rgb), 0.5), 0 18px 50px -18px rgba(var(--accent-rgb), 0.6);
+
+   /* ===== Other colors used around the site ===== */
+   --color-text-soft: #cfd5da; /* longer paragraphs, a bit softer than full white */
+   --overlay-rgb: 255, 255, 255; /* white for very faint lines and see through backgrounds */
+   --shadow-rgb: 0, 0, 0; /* shadows */
+   --surface-rgb: 24, 27, 31; /* --color-surface as numbers, for the glass navbar */
+   --backdrop-rgb: 8, 9, 10; /* dark background behind popups */
+   --color-chip-solid: #1c2024; /* the floating tags next to my picture */
+   --blob-2-rgb: 70, 90, 120; /* the second blob in the hero */
+
+   /* ===== Typography ===== */
+   --font-display: "Bricolage Grotesque Variable", "Segoe UI", system-ui, sans-serif; /* headings */
+   --font-body: "Manrope Variable", "Segoe UI", system-ui, sans-serif; /* everything else */
+   --font-code: ui-monospace, "Cascadia Code", Consolas, monospace; /* only for code in blog posts */
+
+   --text-xs: 0.8125rem;
+   --text-sm: 0.9rem;
+   --text-base: 1rem;
+   --text-lg: 1.2rem;
+   --text-xl: 1.5rem;
+   --text-2xl: clamp(2rem, 1.4rem + 2.2vw, 3rem); /* section headings */
+   --text-hero: clamp(2.6rem, 1.3rem + 5.2vw, 5.4rem); /* hero headline */
+   --leading-body: 1.65;
+   --leading-tight: 1.02;
+
+   /* ===== Layout ===== */
+   --page-max: 1200px;
+   --page-pad: clamp(20px, 5vw, 56px); /* space on the left and right of the page */
+   --nav-height: 76px;
+   --section-space: clamp(80px, 11vw, 140px); /* space above and below each section (clamp(min, preferred, max)) */
+   --measure: 64ch; /* max width for paragraphs so lines aren't too long to read (ch = width of one character) */
+
+   /* ===== Shape ===== */
+   --radius-sm: 8px;
+   --radius-md: 14px;
+   --radius-lg: 20px;
+   --radius-pill: 999px;
+   --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 20px 40px -24px rgba(0, 0, 0, 0.7);
+
+   /* ===== Animation ===== */
+   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+   --duration: 0.25s;
+
+   /* ===== Layers (z-index, higher = on top) ===== */
+   --z-nav: 50;
+   --z-menu: 60;
+   --z-modal: 100;
+}

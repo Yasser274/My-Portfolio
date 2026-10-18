@@ -4,7 +4,7 @@ import Projects from "@/sections/Projects/Projects";
 import Experience from "@/sections/Experience/Experience";
 import Skills from "@/sections/Skills/Skills";
 import Certifications from "@/sections/Certifications/Certifications";
-import Writing from "@/sections/Blog/Blog";
+import Blog from "@/sections/Blog/Blog";
 // Data
 import { projectsData } from "@/data/projectsData";
 import { jobsData } from "@/data/jobsData";
@@ -20,7 +20,7 @@ const HomePage = () => {
          <Experience jobs={jobsData}></Experience>
          <Skills groups={skillsData}></Skills>
          <Certifications certs={certsData}></Certifications>
-         <Writing></Writing>
+         <Blog></Blog>
       </>
    );
 };

@@ -7,7 +7,7 @@ import usePosts from "@/hooks/usePosts";
 
 const LATEST_COUNT = 3; // how many posts show on the home page
 
-const Writing = () => {
+const Blog = () => {
    const { posts, loading, failed } = usePosts();
 
    return (
@@ -22,4 +22,4 @@ const Writing = () => {
    );
 };
 
-export default Writing;
+export default Blog;

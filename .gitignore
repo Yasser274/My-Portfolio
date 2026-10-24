@@ -11,7 +11,6 @@ node_modules
 dist
 dist-ssr
 *.local
-**/repomix-output.xml
 
 # Editor directories and files
 .vscode/*

@@ -14,7 +14,7 @@ export const projectsData: ProjectItem[] = [
             isBold: true,
          },
          {
-            text: "- User authentication with secure sign-up and login",
+            text: "- User authentication with secure sign-up and login (JWT, hashed passwords)",
          },
          {
             text: "- PostgreSQL database for reviews, ratings and trend data",
@@ -25,10 +25,40 @@ export const projectsData: ProjectItem[] = [
          {
             text: "- Dark and light themes, responsive across devices",
          },
+         {
+            text: "Deployed on a serverless AWS architecture:",
+            isBold: true,
+         },
+         {
+            text: "- React frontend on a private S3 bucket served through CloudFront (OAC, HTTPS, custom domain via ACM)",
+         },
+         {
+            text: "- Express API running on AWS Lambda behind an API Gateway HTTP API with request throttling",
+         },
+         {
+            text: "- Amazon RDS PostgreSQL in private VPC subnets, reachable only from Lambda through security groups",
+         },
+         {
+            text: "- Profile pictures uploaded directly to S3 with presigned URLs and least-privilege IAM",
+         },
+         {
+            text: "- CI/CD with GitHub Actions, authenticating to AWS through OIDC with no stored access keys",
+         },
       ],
-      projectTags: ["JavaScript", "TypeScript", "React", "PostgreSQL", "ExpressJS"],
+      projectTags: [
+         "TypeScript",
+         "React",
+         "ExpressJS",
+         "PostgreSQL",
+         "AWS Lambda",
+         "API Gateway",
+         "Amazon RDS",
+         "S3",
+         "CloudFront",
+         "GitHub Actions",
+      ],
       projectLinks: [
-         { text: "Watch demo", url: "https://youtu.be/08h7WsgUVcY" },
+         { text: "Live site", url: "https://trendbites.yasserswdev.com" },
          { text: "Code on GitHub", url: "https://github.com/Yasser274/Fullstack-Project-React" },
       ],
    },
@@ -44,7 +74,7 @@ export const projectsData: ProjectItem[] = [
             text: "Performed demographic and campaign analysis to identify underperforming products, the customer segments most likely to purchase, and opportunities to improve targeting and product strategy.",
          },
       ],
-      projectTags: ["Python", "PostgreSQL", "Power BI","SQL"],
+      projectTags: ["Python", "PostgreSQL", "Power BI", "SQL"],
       projectLinks: [
          {
             text: "Watch demo",

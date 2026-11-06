@@ -11,7 +11,7 @@ export const jobsData: JobItem[] = [
          "Build and maintain the company's SharePoint Online intranet for 500+ employees using SPFx, React, TypeScript, Fluent UI and SCSS modules.",
          "Developed an attendance module that retrieves BioStar access-control data through a Java Servlet API and Microsoft Graph, with role-based views for employees, managers and HR.",
          "Built a news and events engine on the SharePoint REST API and automated internal processes with Power Automate.",
-         "Built a SharePoint portal for an external client.",
+         "Part of the project delivery team building a SharePoint Online intranet portal for a client, adapting our internal portal's architecture and components to their branding and requirements.",
          "Scope technical requirements for RFPs and change requests, turning client needs into solution designs.",
       ],
    },

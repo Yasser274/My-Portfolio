@@ -37,7 +37,11 @@ const About = () => {
    const onSpotlightMove = useSpotlight();
 
    return (
-      <Section id="about" title="About me" note="From marketing analytics to building the tools a whole company uses every day.">
+      <Section
+         id="about"
+         title="About me"
+         note="From marketing analytics to building the tools a whole company uses every day."
+      >
          <div className={styles.about}>
             <motion.div
                className={styles.text}
@@ -47,17 +51,24 @@ const About = () => {
                viewport={inViewOnce}
             >
                <motion.p variants={revealUp}>
-                  I'm a web developer at MIS in Riyadh. Most of my day goes into the company's SharePoint Online
-                  intranet: building web parts, wiring them to Microsoft Graph and our backend APIs, and automating
-                  the processes around them. I also scope technical requirements when clients send RFPs and change
-                  requests.
+                  I'm a developer and pre-sales specialist at MIS in Riyadh. I build and maintain the
+                  company's SharePoint Online intranet: web parts wired to Microsoft Graph and our backend
+                  APIs, plus the automation around them. I'm also on the project delivery team building a
+                  SharePoint intranet portal for a client, and I scope technical requirements and solution
+                  designs for RFPs and change requests.
                </motion.p>
                <motion.p variants={revealUp}>
-                  I started out in marketing, interning at Almosafer on campaigns and market analysis. Data work pulled
-                  me toward code: SQL, Python and Power BI first, then JavaScript, React and full-stack apps.
+                  I started out in marketing, interning at Almosafer on campaigns and market analysis. Data
+                  work pulled me toward code: SQL, Python and Power BI first, then JavaScript, React and
+                  full-stack apps.
                </motion.p>
                <motion.div variants={revealUp}>
-                  <a href={site.resume} target="_blank" rel="noreferrer" className={`${ui.btn} ${ui.btnGhost}`}>
+                  <a
+                     href={site.resume}
+                     target="_blank"
+                     rel="noreferrer"
+                     className={`${ui.btn} ${ui.btnGhost}`}
+                  >
                      <FileIcon /> Read my resume
                   </a>
                </motion.div>

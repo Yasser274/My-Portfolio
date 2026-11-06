@@ -29,7 +29,7 @@ const aboutCards = [
    {
       icon: <CloudDataIcon width={44} height={44} primaryColor={ICON_PRIMARY} accentColor={ICON_ACCENT} />,
       title: "Cloud & data",
-      p: "AWS Certified Cloud Practitioner preparing for Solutions Architect Associate, with SQL, Python and Power BI.",
+      p: "AWS Certified Solutions Architect Associate and Cloud Practitioner, with SQL, Python and Power BI.",
    },
 ];
 

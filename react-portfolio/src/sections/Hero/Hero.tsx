@@ -17,7 +17,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/icons/Icons";
 // certs and projects come from the data files so they update by themselves when i add one
 const stats = [
    { value: 500, suffix: "+", label: "employees use the intranet I build" },
-   { value: certsData.length, suffix: "", label: "certificates, including AWS" },
+   { value: certsData.length, suffix: "", label: "certificates, including AWS Solutions Architect" },
    { value: projectsData.length, suffix: "", label: "personal projects shipped" },
 ];
 
@@ -210,7 +210,7 @@ const Hero = () => {
                   <div className={styles.ring} aria-hidden="true" />
                   <img src={getImageUrl("hero/Avatar.png")} alt={`Portrait of ${site.name}`} className={styles.portrait} />
                   <span className={`${styles.floatChip} ${styles.chipTop}`}>SPFx + React</span>
-                  <span className={`${styles.floatChip} ${styles.chipBottom}`}>AWS Certified</span>
+                  <span className={`${styles.floatChip} ${styles.chipBottom}`}>AWS Certified Solutions Architect</span>
                </div>
             </motion.div>
          </div>
